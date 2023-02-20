@@ -1,0 +1,19 @@
+﻿V1.0.7 
+整合N32G45X、N32G4FR、N32WB452、N32G43X、N32L43X、N32L40X、N32G032、N32G031、N32G030、N32G430系列资料，后续统一管理
+
+V1.0.9 
+增加N32G435T8Q7
+
+V1.0.10
+文档内容校对及格式调整
+
+-----------------------------------------------------------------------------------------------------------
+
+V1.0.7 
+Merge and organize N32G45X、N32G4FR、N32WB452、N32G43X、N32L43X、N32L40X、N32G032、N32G031、N32G030、N32G430 series, unified management later
+
+V1.0.9 
+add  N32G435T8Q7
+
+V1.0.10
+document content proofreading，format adjustment

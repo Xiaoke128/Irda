@@ -1,0 +1,15 @@
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\bin\armproc.dll" 
+
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\bin\armjlink2.dll" 
+
+"E:\workCode\ir_uart\SourceCode\Debug\Exe\IrControl.out" 
+
+--plugin="C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\bin\armbat.dll" 
+
+--device_macro="C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\debugger\Nations\N32G030\N32G030.dmac" 
+
+--flash_loader="C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\flashloader\Nations\N32G030x6\N32G030x6.board" 
+
+
+
+

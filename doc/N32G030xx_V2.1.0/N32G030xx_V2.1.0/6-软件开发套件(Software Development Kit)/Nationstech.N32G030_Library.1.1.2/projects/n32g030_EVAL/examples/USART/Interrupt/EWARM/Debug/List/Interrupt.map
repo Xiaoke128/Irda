@@ -1,0 +1,329 @@
+###############################################################################
+#
+# IAR ELF Linker V8.32.1.169/W32 for ARM                  24/Nov/2022  20:05:51
+# Copyright 2007-2018 IAR Systems AB.
+#
+#    Output file  =  
+#        E:\workCode\ir_uart\doc\N32G030xx_V2.1.0\N32G030xx_V2.1.0\6-软件开发套件(Software
+#        Development
+#        Kit)\Nationstech.N32G030_Library.1.1.2\projects\n32g030_EVAL\examples\USART\Interrupt\EWARM\Debug\Exe\Interrupt.out
+#    Map file     =  
+#        E:\workCode\ir_uart\doc\N32G030xx_V2.1.0\N32G030xx_V2.1.0\6-软件开发套件(Software
+#        Development
+#        Kit)\Nationstech.N32G030_Library.1.1.2\projects\n32g030_EVAL\examples\USART\Interrupt\EWARM\Debug\List\Interrupt.map
+#    Command line =  
+#        -f C:\Users\ADMINI~1\AppData\Local\Temp\EW74A8.tmp
+#        ("E:\workCode\ir_uart\doc\N32G030xx_V2.1.0\N32G030xx_V2.1.0\6-软件开发套件(Software
+#        Development
+#        Kit)\Nationstech.N32G030_Library.1.1.2\projects\n32g030_EVAL\examples\USART\Interrupt\EWARM\Debug\Obj\main.o"
+#        "E:\workCode\ir_uart\doc\N32G030xx_V2.1.0\N32G030xx_V2.1.0\6-软件开发套件(Software
+#        Development
+#        Kit)\Nationstech.N32G030_Library.1.1.2\projects\n32g030_EVAL\examples\USART\Interrupt\EWARM\Debug\Obj\misc.o"
+#        "E:\workCode\ir_uart\doc\N32G030xx_V2.1.0\N32G030xx_V2.1.0\6-软件开发套件(Software
+#        Development
+#        Kit)\Nationstech.N32G030_Library.1.1.2\projects\n32g030_EVAL\examples\USART\Interrupt\EWARM\Debug\Obj\n32g030_gpio.o"
+#        "E:\workCode\ir_uart\doc\N32G030xx_V2.1.0\N32G030xx_V2.1.0\6-软件开发套件(Software
+#        Development
+#        Kit)\Nationstech.N32G030_Library.1.1.2\projects\n32g030_EVAL\examples\USART\Interrupt\EWARM\Debug\Obj\n32g030_it.o"
+#        "E:\workCode\ir_uart\doc\N32G030xx_V2.1.0\N32G030xx_V2.1.0\6-软件开发套件(Software
+#        Development
+#        Kit)\Nationstech.N32G030_Library.1.1.2\projects\n32g030_EVAL\examples\USART\Interrupt\EWARM\Debug\Obj\n32g030_rcc.o"
+#        "E:\workCode\ir_uart\doc\N32G030xx_V2.1.0\N32G030xx_V2.1.0\6-软件开发套件(Software
+#        Development
+#        Kit)\Nationstech.N32G030_Library.1.1.2\projects\n32g030_EVAL\examples\USART\Interrupt\EWARM\Debug\Obj\n32g030_usart.o"
+#        "E:\workCode\ir_uart\doc\N32G030xx_V2.1.0\N32G030xx_V2.1.0\6-软件开发套件(Software
+#        Development
+#        Kit)\Nationstech.N32G030_Library.1.1.2\projects\n32g030_EVAL\examples\USART\Interrupt\EWARM\Debug\Obj\startup_n32g030_EWARM.o"
+#        "E:\workCode\ir_uart\doc\N32G030xx_V2.1.0\N32G030xx_V2.1.0\6-软件开发套件(Software
+#        Development
+#        Kit)\Nationstech.N32G030_Library.1.1.2\projects\n32g030_EVAL\examples\USART\Interrupt\EWARM\Debug\Obj\system_n32g030.o"
+#        --redirect _Printf=_PrintfFull --redirect _Scanf=_ScanfFull
+#        --no_out_extension -o
+#        "E:\workCode\ir_uart\doc\N32G030xx_V2.1.0\N32G030xx_V2.1.0\6-软件开发套件(Software
+#        Development
+#        Kit)\Nationstech.N32G030_Library.1.1.2\projects\n32g030_EVAL\examples\USART\Interrupt\EWARM\Debug\Exe\Interrupt.out"
+#        --map
+#        "E:\workCode\ir_uart\doc\N32G030xx_V2.1.0\N32G030xx_V2.1.0\6-软件开发套件(Software
+#        Development
+#        Kit)\Nationstech.N32G030_Library.1.1.2\projects\n32g030_EVAL\examples\USART\Interrupt\EWARM\Debug\List\Interrupt.map"
+#        --config "C:\Program Files (x86)\IAR Systems\Embedded Workbench
+#        8.2\arm\config\linker\Nations\N32G030\N32G030x8.icf" --semihosting
+#        --entry __iar_program_start --vfe --text_out locale)
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__SystemLibrary = DLib
+__dlib_version  = 6
+
+
+*******************************************************************************
+*** HEAP SELECTION
+***
+
+The basic heap was selected because no calls to memory allocation
+functions were found in the application outside of system library
+functions, and there are calls to deallocation functions in the
+application.
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at 0x800'0000 { ro section .intvec };
+"P1":  place in [from 0x0 to 0x0] |
+                [from 0x800'0000 to 0x800'ffff] { ro };
+define block CSTACK with size = 1K, alignment = 8 { };
+define block PROC_STACK with size = 0M, alignment = 8 { };
+define block HEAP with size = 512, alignment = 8 { };
+"P3":  place in [from 0x0 to 0x0] |
+                [from 0x2000'0000 to 0x2000'1fff] {
+          rw, block CSTACK, block PROC_STACK, block HEAP };
+initialize by copy { rw };
+
+No sections matched the following patterns:
+
+  ro section application_specific_ro  in "P2|P4"
+  rw section application_specific_rw  in "P2|P4"
+
+
+  Section            Kind         Address   Size  Object
+  -------            ----         -------   ----  ------
+"A0":                                       0xc0
+  .intvec            ro code   0x800'0000   0xc0  startup_n32g030_EWARM.o [1]
+                             - 0x800'00c0   0xc0
+
+"P1":                                      0xb1c
+  .text              ro code   0x800'00c0  0x19c  n32g030_gpio.o [1]
+  .text              ro code   0x800'025c  0x170  main.o [1]
+  .text              ro code   0x800'03cc  0x13c  n32g030_usart.o [1]
+  .text              ro code   0x800'0508  0x150  n32g030_rcc.o [1]
+  .text              ro code   0x800'0658   0x94  misc.o [1]
+  .text              ro code   0x800'06ec   0xae  I32DivModFast.o [3]
+  .text              ro code   0x800'079a    0x2  startup_n32g030_EWARM.o [1]
+  .text              ro code   0x800'079c    0x2  IntDivZer.o [3]
+  .text              ro code   0x800'079e    0x2  startup_n32g030_EWARM.o [1]
+  .text              ro code   0x800'07a0  0x12c  n32g030_it.o [1]
+  .text              ro code   0x800'08cc   0xfc  system_n32g030.o [1]
+  .text              ro code   0x800'09c8   0x30  copy_init3.o [3]
+  .text              ro code   0x800'09f8   0x28  data_init.o [3]
+  .iar.init_table    const     0x800'0a20   0x14  - Linker created -
+  .text              ro code   0x800'0a34   0x1e  cmain.o [3]
+  .text              ro code   0x800'0a52    0x4  low_level_init.o [2]
+  .text              ro code   0x800'0a56    0x8  exit.o [2]
+  .text              ro code   0x800'0a5e    0x2  startup_n32g030_EWARM.o [1]
+  .text              ro code   0x800'0a60    0xa  cexit.o [3]
+  .text              ro code   0x800'0a6a    0x2  startup_n32g030_EWARM.o [1]
+  .text              ro code   0x800'0a6c   0x14  exit.o [4]
+  .text              ro code   0x800'0a80   0x10  startup_n32g030_EWARM.o [1]
+  .text              ro code   0x800'0a90    0xc  cstartup_M.o [3]
+  .text              ro code   0x800'0a9c    0x2  startup_n32g030_EWARM.o [1]
+  .text              ro code   0x800'0a9e    0x2  startup_n32g030_EWARM.o [1]
+  .text              ro code   0x800'0aa0    0x2  startup_n32g030_EWARM.o [1]
+  .text              ro code   0x800'0aa2    0x2  startup_n32g030_EWARM.o [1]
+  .text              ro code   0x800'0aa4    0x2  startup_n32g030_EWARM.o [1]
+  .text              ro code   0x800'0aa6    0x2  startup_n32g030_EWARM.o [1]
+  .text              ro code   0x800'0aa8    0x2  startup_n32g030_EWARM.o [1]
+  .text              ro code   0x800'0aaa    0x2  startup_n32g030_EWARM.o [1]
+  .text              ro code   0x800'0aac    0x2  startup_n32g030_EWARM.o [1]
+  .text              ro code   0x800'0aae    0x2  startup_n32g030_EWARM.o [1]
+  .text              ro code   0x800'0ab0    0x2  startup_n32g030_EWARM.o [1]
+  .text              ro code   0x800'0ab2    0x2  startup_n32g030_EWARM.o [1]
+  .text              ro code   0x800'0ab4    0x2  startup_n32g030_EWARM.o [1]
+  .text              ro code   0x800'0ab6    0x2  startup_n32g030_EWARM.o [1]
+  .text              ro code   0x800'0ab8    0x2  startup_n32g030_EWARM.o [1]
+  .text              ro code   0x800'0aba    0x2  startup_n32g030_EWARM.o [1]
+  .text              ro code   0x800'0abc    0x2  startup_n32g030_EWARM.o [1]
+  .text              ro code   0x800'0abe    0x2  startup_n32g030_EWARM.o [1]
+  .text              ro code   0x800'0ac0    0x2  startup_n32g030_EWARM.o [1]
+  .text              ro code   0x800'0ac2    0x2  startup_n32g030_EWARM.o [1]
+  .text              ro code   0x800'0ac4    0x2  startup_n32g030_EWARM.o [1]
+  .text              ro code   0x800'0ac6    0x2  startup_n32g030_EWARM.o [1]
+  .text              ro code   0x800'0ac8    0x2  startup_n32g030_EWARM.o [1]
+  .text              ro code   0x800'0aca    0x2  startup_n32g030_EWARM.o [1]
+  .text              ro code   0x800'0acc    0x2  startup_n32g030_EWARM.o [1]
+  .rodata            const     0x800'0ace    0x0  copy_init3.o [3]
+  Initializer bytes  const     0x800'0ad0  0x10c  <for P3 s0>
+                             - 0x800'0bdc  0xb1c
+
+"P3", part 1 of 2:                         0x10c
+  P3 s0                       0x2000'0000  0x10c  <Init block>
+    .data            inited   0x2000'0000  0x104  main.o [1]
+    .data            inited   0x2000'0104    0x1  main.o [1]
+    .data            inited   0x2000'0105    0x1  main.o [1]
+    .data            inited   0x2000'0106    0x1  main.o [1]
+    .bss             inited   0x2000'0107    0x1  main.o [1]
+    .bss             inited   0x2000'0108    0x1  main.o [1]
+                            - 0x2000'010c  0x10c
+
+"P3", part 2 of 2:                         0x400
+  CSTACK                      0x2000'0110  0x400  <Block>
+    CSTACK           uninit   0x2000'0110  0x400  <Block tail>
+                            - 0x2000'0510  0x400
+
+Unused ranges:
+
+         From           To    Size
+         ----           --    ----
+          0x0          0x0     0x1
+   0x800'0bdc   0x800'ffff  0xf424
+  0x2000'010c  0x2000'010f     0x4
+  0x2000'0510  0x2000'1fff  0x1af0
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address      Size
+          -------      ----
+Copy (__iar_copy_init3)
+    1 source range, total size 0x10c (101% of destination):
+           0x800'0ad0  0x10c
+    1 destination range, total size 0x109:
+          0x2000'0000  0x109
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module                   ro code  ro data  rw data
+    ------                   -------  -------  -------
+command line/config:
+    --------------------------------------------------
+    Total:
+
+E:\workCode\ir_uart\doc\N32G030xx_V2.1.0\N32G030xx_V2.1.0\6-软件开发套件(Software Development Kit)\Nationstech.N32G030_Library.1.1.2\projects\n32g030_EVAL\examples\USART\Interrupt\EWARM\Debug\Obj: [1]
+    main.o                       368      265      265
+    misc.o                       148
+    n32g030_gpio.o               412
+    n32g030_it.o                 300
+    n32g030_rcc.o                336
+    n32g030_usart.o              316
+    startup_n32g030_EWARM.o      266
+    system_n32g030.o             252
+    --------------------------------------------------
+    Total:                     2 398      265      265
+
+dl6M_tlf.a: [2]
+    exit.o                         8
+    low_level_init.o               4
+    --------------------------------------------------
+    Total:                        12
+
+rt6M_tl.a: [3]
+    I32DivModFast.o              174
+    IntDivZer.o                    2
+    cexit.o                       10
+    cmain.o                       30
+    copy_init3.o                  48
+    cstartup_M.o                  12
+    data_init.o                   40
+    --------------------------------------------------
+    Total:                       316
+
+shb_l.a: [4]
+    exit.o                        20
+    --------------------------------------------------
+    Total:                        20
+
+    Linker created                         25    1 024
+------------------------------------------------------
+    Grand Total:               2 746      290    1 289
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                       Address   Size  Type      Object
+-----                       -------   ----  ----      ------
+.iar.init_table$$Base    0x800'0a20          --   Gb  - Linker created -
+.iar.init_table$$Limit   0x800'0a34          --   Gb  - Linker created -
+?main                    0x800'0a35         Code  Gb  cmain.o [3]
+Buffercmp                0x800'03ab   0x22  Code  Gb  main.o [1]
+CSTACK$$Base            0x2000'0110          --   Gb  - Linker created -
+CSTACK$$Limit           0x2000'0510          --   Gb  - Linker created -
+GPIO_Configuration       0x800'0319   0x4e  Code  Gb  main.o [1]
+GPIO_InitPeripheral      0x800'00c1  0x16a  Code  Gb  n32g030_gpio.o [1]
+GPIO_InitStruct          0x800'022b   0x16  Code  Gb  n32g030_gpio.o [1]
+HardFault_Handler        0x800'07a3    0x2  Code  Gb  n32g030_it.o [1]
+NMI_Handler              0x800'07a1    0x2  Code  Gb  n32g030_it.o [1]
+NVIC_Configuration       0x800'0381   0x2a  Code  Gb  main.o [1]
+NVIC_DisableIRQ          0x800'0667    0xe  Code  Lc  misc.o [1]
+NVIC_EnableIRQ           0x800'0659    0xe  Code  Lc  misc.o [1]
+NVIC_Init                0x800'06b9   0x24  Code  Gb  misc.o [1]
+NVIC_SetPriority         0x800'0675   0x44  Code  Lc  misc.o [1]
+NbrOfDataToRead1        0x2000'0106    0x1  Data  Gb  main.o [1]
+NbrOfDataToTransfer1    0x2000'0104    0x1  Data  Gb  main.o [1]
+NbrOfDataToTransfer2    0x2000'0105    0x1  Data  Gb  main.o [1]
+PendSV_Handler           0x800'07a7    0x2  Code  Gb  n32g030_it.o [1]
+RCC_Configuration        0x800'02fd   0x1c  Code  Gb  main.o [1]
+RCC_EnableAPB1PeriphClk
+                         0x800'05f1   0x14  Code  Gb  n32g030_rcc.o [1]
+RCC_EnableAPB2PeriphClk
+                         0x800'05dd   0x14  Code  Gb  n32g030_rcc.o [1]
+RCC_GetClocksFreqValue   0x800'0509   0xce  Code  Gb  n32g030_rcc.o [1]
+Region$$Table$$Base      0x800'0a20          --   Gb  - Linker created -
+Region$$Table$$Limit     0x800'0a34          --   Gb  - Linker created -
+RxBuffer1               0x2000'008c   0x3c  Data  Gb  main.o [1]
+RxBuffer2               0x2000'00c8   0x3c  Data  Gb  main.o [1]
+RxCounter1              0x2000'0000    0x1  Data  Gb  main.o [1]
+RxCounter2              0x2000'0001    0x1  Data  Gb  main.o [1]
+SVC_Handler              0x800'07a5    0x2  Code  Gb  n32g030_it.o [1]
+SetSysClock              0x800'0915   0x8c  Code  Lc  system_n32g030.o [1]
+SysTick_Handler          0x800'07a9    0x2  Code  Gb  n32g030_it.o [1]
+SystemInit               0x800'08cd   0x48  Code  Gb  system_n32g030.o [1]
+TransferStatus1         0x2000'0002    0x1  Data  Gb  main.o [1]
+TransferStatus2         0x2000'0003    0x1  Data  Gb  main.o [1]
+TxBuffer1               0x2000'0014   0x3c  Data  Gb  main.o [1]
+TxBuffer2               0x2000'0050   0x3c  Data  Gb  main.o [1]
+TxCounter1              0x2000'0107    0x1  Data  Gb  main.o [1]
+TxCounter2              0x2000'0108    0x1  Data  Gb  main.o [1]
+USART1_IRQHandler        0x800'07ab   0x72  Code  Gb  n32g030_it.o [1]
+USART2_IRQHandler        0x800'081d   0x72  Code  Gb  n32g030_it.o [1]
+USART_ConfigInt          0x800'0461   0x36  Code  Gb  n32g030_usart.o [1]
+USART_Enable             0x800'0449   0x18  Code  Gb  n32g030_usart.o [1]
+USART_GetIntStatus       0x800'04bd   0x4c  Code  Gb  n32g030_usart.o [1]
+USART_Init               0x800'03cd   0x7c  Code  Gb  n32g030_usart.o [1]
+USART_InitStructure     0x2000'0004   0x10  Data  Gb  main.o [1]
+USART_ReceiveData        0x800'049f    0x8  Code  Gb  n32g030_usart.o [1]
+USART_SendData           0x800'0497    0x8  Code  Gb  n32g030_usart.o [1]
+__aeabi_idiv0            0x800'079d         Code  Gb  IntDivZer.o [3]
+__aeabi_uidiv            0x800'06ed         Code  Gb  I32DivModFast.o [3]
+__aeabi_uidivmod         0x800'06ed         Code  Gb  I32DivModFast.o [3]
+__cmain                  0x800'0a35         Code  Gb  cmain.o [3]
+__exit                   0x800'0a6d   0x14  Code  Gb  exit.o [4]
+__iar_copy_init3         0x800'09c9   0x30  Code  Gb  copy_init3.o [3]
+__iar_data_init3         0x800'09f9   0x28  Code  Gb  data_init.o [3]
+__iar_program_start      0x800'0a91         Code  Gb  cstartup_M.o [3]
+__low_level_init         0x800'0a53    0x4  Code  Gb  low_level_init.o [2]
+__vector_table           0x800'0000         Data  Gb  startup_n32g030_EWARM.o [1]
+_call_main               0x800'0a41         Code  Gb  cmain.o [3]
+_exit                    0x800'0a61         Code  Gb  cexit.o [3]
+_main                    0x800'0a4f         Code  Gb  cmain.o [3]
+exit                     0x800'0a57    0x8  Code  Gb  exit.o [2]
+main                     0x800'025d   0xa0  Code  Gb  main.o [1]
+s_AdcHclkPresTable       0x800'0628   0x10  Data  Lc  n32g030_rcc.o [1]
+s_AdcPllClkPresTable     0x800'0638   0x20  Data  Lc  n32g030_rcc.o [1]
+s_ApbAhbPresTable        0x800'0618   0x10  Data  Lc  n32g030_rcc.o [1]
+
+
+[1] = E:\workCode\ir_uart\doc\N32G030xx_V2.1.0\N32G030xx_V2.1.0\6-软件开发套件(Software Development Kit)\Nationstech.N32G030_Library.1.1.2\projects\n32g030_EVAL\examples\USART\Interrupt\EWARM\Debug\Obj
+[2] = dl6M_tlf.a
+[3] = rt6M_tl.a
+[4] = shb_l.a
+
+  2 746 bytes of readonly  code memory
+    290 bytes of readonly  data memory
+  1 289 bytes of readwrite data memory
+
+Errors: none
+Warnings: none

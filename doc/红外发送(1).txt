@@ -1,0 +1,40 @@
+//红外数据发送程序，设计思想：发送波形，默认的第一个波形从低到高。
+//参数说明：p指针里存放的是时间基值，len存放的是发送长度。
+//使用定时器TIME2作为波形持续时间的时基。
+void sendIrData1(unsigned char *p,unsigned int len)
+{
+	unsigned int i;
+	unsigned int TIMPeriod;
+	unsigned char level = 0;
+
+	TIM_Cmd(TIM2,ENABLE);
+	TIM_ClearFlag(TIM2,TIM_FLAG_Update);
+	for(i=0;i<len/2;i++)
+	{
+		TIM_SetCounter(TIM2, 0x0000);
+		if(level == 1)
+		{
+			GPIO_ResetBits(GPIOB,GPIO_Pin_11);
+			level = 0;
+		}
+		else
+		{
+			GPIO_SetBits(GPIOB,GPIO_Pin_11);
+			level = 1;
+		}
+		TIMPeriod = ((*p)|(*(p+1)<<8));
+		//if(TIMPeriod == 0)
+		if(TIMPeriod == 0 || TIMPeriod > 0xFFF)//LiQiang Edit 2019/9/25
+		{
+			break;
+		}
+		TIM_SetAutoreload(TIM2,TIMPeriod);
+		while(TIM_GetFlagStatus(TIM2,TIM_FLAG_Update) == RESET);
+		TIM_ClearFlag(TIM2,TIM_FLAG_Update);
+		p++;
+		p++;
+	}
+	GPIO_ResetBits(GPIOB,GPIO_Pin_11);
+	TIM_SetAutoreload(TIM2,65535);
+	TIM_Cmd(TIM2,DISABLE);
+}

@@ -1,0 +1,15 @@
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\bin\armproc.dll" 
+
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\bin\armJET.dll" 
+
+"E:\workCode\ir_uart\doc\N32G030xx_V2.1.0\N32G030xx_V2.1.0\6-软件开发套件(Software Development Kit)\Nationstech.N32G030_Library.1.1.2\projects\n32g030_EVAL\examples\USART\Interrupt\EWARM\Debug\Exe\Interrupt.out" 
+
+--plugin="C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\bin\armbat.dll" 
+
+--device_macro="C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\debugger\Nations\N32G030\N32G030.dmac" 
+
+--flash_loader="C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\config\flashloader\Nations\N32G030x8\N32G030x8.board" 
+
+
+
+
