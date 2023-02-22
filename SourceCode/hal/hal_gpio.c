@@ -40,6 +40,7 @@ void GpioInit(void)
 	
 	LED0_ON;
 	LED1_ON;
+	SysInfo.KeyLevel = GPIO_ReadInputDataBit(LED_KEY_PORT, KEY_PIN);//read the key level when power on
 	//LED2_ON;
 	//LED3_ON;
 }

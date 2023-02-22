@@ -1,12 +1,12 @@
 ###############################################################################
 #
-# IAR ELF Linker V8.32.1.169/W32 for ARM                  22/Feb/2023  20:41:35
+# IAR ELF Linker V8.32.1.169/W32 for ARM                  22/Feb/2023  21:21:35
 # Copyright 2007-2018 IAR Systems AB.
 #
 #    Output file  =  E:\workCode\git\Irda\SourceCode\Debug\Exe\IrControl.out
 #    Map file     =  E:\workCode\git\Irda\SourceCode\Debug\List\IrControl.map
 #    Command line =  
-#        -f C:\Users\ADMINI~1\AppData\Local\Temp\EWEA2F.tmp
+#        -f C:\Users\ADMINI~1\AppData\Local\Temp\EW86B8.tmp
 #        (E:\workCode\git\Irda\SourceCode\Debug\Obj\hal_gpio.o
 #        E:\workCode\git\Irda\SourceCode\Debug\Obj\hal_timer.o
 #        E:\workCode\git\Irda\SourceCode\Debug\Obj\hal_uart.o
@@ -96,7 +96,7 @@ No sections matched the following patterns:
   .intvec            ro code   0x800'0000    0xc0  startup_n32g030_EWARM.o [1]
                              - 0x800'00c0    0xc0
 
-"P1":                                      0x25d0
+"P1":                                      0x25f0
   .text              ro code   0x800'00c0   0xe6e  xprintffull_nomb.o [2]
   .text              ro code   0x800'0f2e     0xa  n32g030_it.o [1]
   .text              ro code   0x800'0f38    0x12  strchr.o [4]
@@ -128,55 +128,55 @@ No sections matched the following patterns:
   .text              ro code   0x800'1650    0x14  exit.o [5]
   .text              ro code   0x800'1664   0x30c  hal_uart.o [1]
   .text              ro code   0x800'1970    0x94  misc.o [1]
-  .text              ro code   0x800'1a04   0x1a8  n32g030_gpio.o [1]
-  .text              ro code   0x800'1bac   0x15e  n32g030_usart.o [1]
-  .text              ro code   0x800'1d0a     0x2  startup_n32g030_EWARM.o [1]
-  .text              ro code   0x800'1d0c   0x164  n32g030_rcc.o [1]
-  .text              ro code   0x800'1e70   0x1a0  protocol.o [1]
-  .text              ro code   0x800'2010   0x14c  n32g030_tim.o [1]
-  .text              ro code   0x800'215c    0xfc  system_n32g030.o [1]
-  .text              ro code   0x800'2258    0xd8  hal_gpio.o [1]
-  .text              ro code   0x800'2330    0x8c  hal_timer.o [1]
-  .text              ro code   0x800'23bc    0x6c  init.o [1]
-  .text              ro code   0x800'2428    0x28  printf.o [2]
-  .text              ro code   0x800'2450    0x3c  zero_init3.o [4]
-  .text              ro code   0x800'248c    0x30  copy_init3.o [4]
-  .text              ro code   0x800'24bc    0x28  data_init.o [4]
-  .iar.init_table    const     0x800'24e4    0x24  - Linker created -
-  .text              ro code   0x800'2508    0x1e  cmain.o [4]
-  .text              ro code   0x800'2526     0x4  low_level_init.o [2]
-  .text              ro code   0x800'252a    0x10  main.o [1]
-  .text              ro code   0x800'253a     0x8  exit.o [2]
-  .text              ro code   0x800'2542     0x2  startup_n32g030_EWARM.o [1]
-  .text              ro code   0x800'2544     0xa  cexit.o [4]
-  .text              ro code   0x800'254e    0x16  xprout.o [2]
-  .text              ro code   0x800'2564    0x10  putchar.o [2]
-  .rodata            const     0x800'2574    0x10  xprintffull_nomb.o [2]
-  .text              ro code   0x800'2584    0x10  startup_n32g030_EWARM.o [1]
-  .text              ro code   0x800'2594     0xc  cstartup_M.o [4]
-  .rodata            const     0x800'25a0     0x4  xlocale_c.o [2]
-  .text              ro code   0x800'25a4     0x2  startup_n32g030_EWARM.o [1]
-  .text              ro code   0x800'25a6     0x2  startup_n32g030_EWARM.o [1]
-  .text              ro code   0x800'25a8     0x2  startup_n32g030_EWARM.o [1]
-  .text              ro code   0x800'25aa     0x2  startup_n32g030_EWARM.o [1]
-  .text              ro code   0x800'25ac     0x2  startup_n32g030_EWARM.o [1]
-  .text              ro code   0x800'25ae     0x2  startup_n32g030_EWARM.o [1]
-  .text              ro code   0x800'25b0     0x2  startup_n32g030_EWARM.o [1]
-  .text              ro code   0x800'25b2     0x2  startup_n32g030_EWARM.o [1]
-  .text              ro code   0x800'25b4     0x2  startup_n32g030_EWARM.o [1]
-  .text              ro code   0x800'25b6     0x2  startup_n32g030_EWARM.o [1]
-  .text              ro code   0x800'25b8     0x2  startup_n32g030_EWARM.o [1]
-  .text              ro code   0x800'25ba     0x2  startup_n32g030_EWARM.o [1]
-  .text              ro code   0x800'25bc     0x2  startup_n32g030_EWARM.o [1]
-  .text              ro code   0x800'25be     0x2  startup_n32g030_EWARM.o [1]
-  .text              ro code   0x800'25c0     0x2  startup_n32g030_EWARM.o [1]
-  .text              ro code   0x800'25c2     0x2  startup_n32g030_EWARM.o [1]
+  .text              ro code   0x800'1a04   0x1b8  n32g030_gpio.o [1]
+  .text              ro code   0x800'1bbc   0x15e  n32g030_usart.o [1]
+  .text              ro code   0x800'1d1a     0x2  startup_n32g030_EWARM.o [1]
+  .text              ro code   0x800'1d1c   0x164  n32g030_rcc.o [1]
+  .text              ro code   0x800'1e80   0x1a0  protocol.o [1]
+  .text              ro code   0x800'2020   0x14c  n32g030_tim.o [1]
+  .text              ro code   0x800'216c    0xfc  system_n32g030.o [1]
+  .text              ro code   0x800'2268    0xe8  hal_gpio.o [1]
+  .text              ro code   0x800'2350    0x8c  hal_timer.o [1]
+  .text              ro code   0x800'23dc    0x6c  init.o [1]
+  .text              ro code   0x800'2448    0x28  printf.o [2]
+  .text              ro code   0x800'2470    0x3c  zero_init3.o [4]
+  .text              ro code   0x800'24ac    0x30  copy_init3.o [4]
+  .text              ro code   0x800'24dc    0x28  data_init.o [4]
+  .iar.init_table    const     0x800'2504    0x24  - Linker created -
+  .text              ro code   0x800'2528    0x1e  cmain.o [4]
+  .text              ro code   0x800'2546     0x4  low_level_init.o [2]
+  .text              ro code   0x800'254a    0x10  main.o [1]
+  .text              ro code   0x800'255a     0x8  exit.o [2]
+  .text              ro code   0x800'2562     0x2  startup_n32g030_EWARM.o [1]
+  .text              ro code   0x800'2564     0xa  cexit.o [4]
+  .text              ro code   0x800'256e    0x16  xprout.o [2]
+  .text              ro code   0x800'2584    0x10  putchar.o [2]
+  .rodata            const     0x800'2594    0x10  xprintffull_nomb.o [2]
+  .text              ro code   0x800'25a4    0x10  startup_n32g030_EWARM.o [1]
+  .text              ro code   0x800'25b4     0xc  cstartup_M.o [4]
+  .rodata            const     0x800'25c0     0x4  xlocale_c.o [2]
   .text              ro code   0x800'25c4     0x2  startup_n32g030_EWARM.o [1]
   .text              ro code   0x800'25c6     0x2  startup_n32g030_EWARM.o [1]
-  .rodata            const     0x800'25c8     0x0  zero_init3.o [4]
-  .rodata            const     0x800'25c8     0x0  copy_init3.o [4]
-  Initializer bytes  const     0x800'25c8    0xc8  <for P3 s0>
-                             - 0x800'2690  0x25d0
+  .text              ro code   0x800'25c8     0x2  startup_n32g030_EWARM.o [1]
+  .text              ro code   0x800'25ca     0x2  startup_n32g030_EWARM.o [1]
+  .text              ro code   0x800'25cc     0x2  startup_n32g030_EWARM.o [1]
+  .text              ro code   0x800'25ce     0x2  startup_n32g030_EWARM.o [1]
+  .text              ro code   0x800'25d0     0x2  startup_n32g030_EWARM.o [1]
+  .text              ro code   0x800'25d2     0x2  startup_n32g030_EWARM.o [1]
+  .text              ro code   0x800'25d4     0x2  startup_n32g030_EWARM.o [1]
+  .text              ro code   0x800'25d6     0x2  startup_n32g030_EWARM.o [1]
+  .text              ro code   0x800'25d8     0x2  startup_n32g030_EWARM.o [1]
+  .text              ro code   0x800'25da     0x2  startup_n32g030_EWARM.o [1]
+  .text              ro code   0x800'25dc     0x2  startup_n32g030_EWARM.o [1]
+  .text              ro code   0x800'25de     0x2  startup_n32g030_EWARM.o [1]
+  .text              ro code   0x800'25e0     0x2  startup_n32g030_EWARM.o [1]
+  .text              ro code   0x800'25e2     0x2  startup_n32g030_EWARM.o [1]
+  .text              ro code   0x800'25e4     0x2  startup_n32g030_EWARM.o [1]
+  .text              ro code   0x800'25e6     0x2  startup_n32g030_EWARM.o [1]
+  .rodata            const     0x800'25e8     0x0  zero_init3.o [4]
+  .rodata            const     0x800'25e8     0x0  copy_init3.o [4]
+  Initializer bytes  const     0x800'25e8    0xc8  <for P3 s0>
+                             - 0x800'26b0  0x25f0
 
 "P3", part 1 of 3:                           0xc8
   P3 s0                       0x2000'0000    0xc8  <Init block>
@@ -185,30 +185,31 @@ No sections matched the following patterns:
     .data            inited   0x2000'0090    0x38  xlocale_c.o [2]
                             - 0x2000'00c8    0xc8
 
-"P3", part 2 of 3:                          0x2d8
+"P3", part 2 of 3:                          0x2e0
   .bss               zero     0x2000'00c8   0x100  hal_uart.o [1]
   .bss               zero     0x2000'01c8   0x100  hal_uart.o [1]
   .bss               zero     0x2000'02c8    0x78  protocol.o [1]
   .bss               zero     0x2000'0340    0x50  xfiles.o [2]
-  .bss               zero     0x2000'0390     0x4  init.o [1]
-  .bss               zero     0x2000'0394     0x4  xfail_s.o [2]
-  .bss               zero     0x2000'0398     0x3  hal_uart.o [1]
-  .bss               zero     0x2000'039b     0x3  hal_uart.o [1]
-  .bss               zero     0x2000'039e     0x2  hal_gpio.o [1]
-                            - 0x2000'03a0   0x2d8
+  .bss               zero     0x2000'0390     0x8  init.o [1]
+  .bss               zero     0x2000'0398     0x4  init.o [1]
+  .bss               zero     0x2000'039c     0x4  xfail_s.o [2]
+  .bss               zero     0x2000'03a0     0x3  hal_uart.o [1]
+  .bss               zero     0x2000'03a3     0x3  hal_uart.o [1]
+  .bss               zero     0x2000'03a6     0x2  hal_gpio.o [1]
+                            - 0x2000'03a8   0x2e0
 
 "P3", part 3 of 3:                          0x400
-  CSTACK                      0x2000'03a0   0x400  <Block>
-    CSTACK           uninit   0x2000'03a0   0x400  <Block tail>
-                            - 0x2000'07a0   0x400
+  CSTACK                      0x2000'03a8   0x400  <Block>
+    CSTACK           uninit   0x2000'03a8   0x400  <Block tail>
+                            - 0x2000'07a8   0x400
 
 Unused ranges:
 
          From           To    Size
          ----           --    ----
           0x0          0x0     0x1
-   0x800'2690   0x800'7fff  0x5970
-  0x2000'07a0  0x2000'1fff  0x1860
+   0x800'26b0   0x800'7fff  0x5950
+  0x2000'07a8  0x2000'1fff  0x1858
 
 
 *******************************************************************************
@@ -218,12 +219,12 @@ Unused ranges:
           Address      Size
           -------      ----
 Zero (__iar_zero_init3)
-    1 destination range, total size 0x2d8:
-          0x2000'00c8  0x2d8
+    1 destination range, total size 0x2e0:
+          0x2000'00c8  0x2e0
 
 Copy (__iar_copy_init3)
     1 source range, total size 0xc8:
-           0x800'25c8   0xc8
+           0x800'25e8   0xc8
     1 destination range, total size 0xc8:
           0x2000'0000   0xc8
 
@@ -240,13 +241,13 @@ command line/config:
     Total:
 
 E:\workCode\git\Irda\SourceCode\Debug\Obj: [1]
-    hal_gpio.o                   216                 2
+    hal_gpio.o                   232                 2
     hal_timer.o                  140
     hal_uart.o                   780               518
-    init.o                       108                 4
+    init.o                       108                12
     main.o                        16
     misc.o                       148
-    n32g030_gpio.o               424
+    n32g030_gpio.o               440
     n32g030_it.o                  10
     n32g030_rcc.o                356
     n32g030_tim.o                332
@@ -255,7 +256,7 @@ E:\workCode\git\Irda\SourceCode\Debug\Obj: [1]
     startup_n32g030_EWARM.o      264
     system_n32g030.o             252
     --------------------------------------------------
-    Total:                     3 812       72      716
+    Total:                     3 844       72      724
 
 dl6M_tlf.a: [2]
     abort.o                       10
@@ -307,7 +308,7 @@ shb_l.a: [5]
 
     Linker created                         36    1 024
 ------------------------------------------------------
-    Grand Total:               9 616      256    1 952
+    Grand Total:               9 648      256    1 960
 
 
 *******************************************************************************
@@ -316,95 +317,97 @@ shb_l.a: [5]
 
 Entry                       Address   Size  Type      Object
 -----                       -------   ----  ----      ------
-.iar.init_table$$Base    0x800'24e4          --   Gb  - Linker created -
-.iar.init_table$$Limit   0x800'2508          --   Gb  - Linker created -
-?main                    0x800'2509         Code  Gb  cmain.o [4]
-CSTACK$$Base            0x2000'03a0          --   Gb  - Linker created -
-CSTACK$$Limit           0x2000'07a0          --   Gb  - Linker created -
-ComTask                  0x800'1e71   0x6c  Code  Gb  protocol.o [1]
-ConfigureAction          0x800'1ef5    0x2  Code  Lc  protocol.o [1]
-ConfigureConfirmAction   0x800'1ef9   0x14  Code  Lc  protocol.o [1]
-ControlAction            0x800'1edd    0x2  Code  Lc  protocol.o [1]
-ControlConfirmAction     0x800'1ee1   0x14  Code  Lc  protocol.o [1]
+.iar.init_table$$Base    0x800'2504          --   Gb  - Linker created -
+.iar.init_table$$Limit   0x800'2528          --   Gb  - Linker created -
+?main                    0x800'2529         Code  Gb  cmain.o [4]
+CSTACK$$Base            0x2000'03a8          --   Gb  - Linker created -
+CSTACK$$Limit           0x2000'07a8          --   Gb  - Linker created -
+ComTask                  0x800'1e81   0x6c  Code  Gb  protocol.o [1]
+ConfigureAction          0x800'1f05    0x2  Code  Lc  protocol.o [1]
+ConfigureConfirmAction   0x800'1f09   0x14  Code  Lc  protocol.o [1]
+ControlAction            0x800'1eed    0x2  Code  Lc  protocol.o [1]
+ControlConfirmAction     0x800'1ef1   0x14  Code  Lc  protocol.o [1]
 DebugAdd                 0x800'184f   0x3c  Code  Lc  hal_uart.o [1]
 DebugBuff               0x2000'01c8  0x100  Data  Lc  hal_uart.o [1]
 DebugCheck               0x800'188b    0xe  Code  Gb  hal_uart.o [1]
-DebugCount              0x2000'039d    0x1  Data  Lc  hal_uart.o [1]
+DebugCount              0x2000'03a5    0x1  Data  Lc  hal_uart.o [1]
 DebugGetData             0x800'1899   0x44  Code  Gb  hal_uart.o [1]
-DebugHead               0x2000'039b    0x1  Data  Lc  hal_uart.o [1]
-DebugTail               0x2000'039c    0x1  Data  Lc  hal_uart.o [1]
+DebugHead               0x2000'03a3    0x1  Data  Lc  hal_uart.o [1]
+DebugTail               0x2000'03a4    0x1  Data  Lc  hal_uart.o [1]
 DebugUartInit            0x800'16e7   0x8a  Code  Gb  hal_uart.o [1]
 DebugUartSend            0x800'18fb   0x32  Code  Gb  hal_uart.o [1]
 FuncTable               0x2000'0000   0x48  Data  Gb  protocol.o [1]
 GPIO_InitPeripheral      0x800'1a05  0x16a  Code  Gb  n32g030_gpio.o [1]
 GPIO_InitStruct          0x800'1b6f   0x16  Code  Gb  n32g030_gpio.o [1]
-GPIO_SetBits             0x800'1b91    0x4  Code  Gb  n32g030_gpio.o [1]
-GPIO_TogglePin           0x800'1b95    0x8  Code  Gb  n32g030_gpio.o [1]
-GpioInit                 0x800'2259   0x86  Code  Gb  hal_gpio.o [1]
+GPIO_ReadInputDataBit    0x800'1b91    0xe  Code  Gb  n32g030_gpio.o [1]
+GPIO_SetBits             0x800'1b9f    0x4  Code  Gb  n32g030_gpio.o [1]
+GPIO_TogglePin           0x800'1ba3    0x8  Code  Gb  n32g030_gpio.o [1]
+GpioInit                 0x800'2269   0x92  Code  Gb  hal_gpio.o [1]
 HardFault_Handler        0x800'0f31    0x2  Code  Gb  n32g030_it.o [1]
 HostAdd                  0x800'1771   0x3c  Code  Lc  hal_uart.o [1]
 HostBuff                0x2000'00c8  0x100  Data  Lc  hal_uart.o [1]
 HostCheck                0x800'17ad    0xe  Code  Gb  hal_uart.o [1]
-HostCount               0x2000'039a    0x1  Data  Lc  hal_uart.o [1]
+HostCount               0x2000'03a2    0x1  Data  Lc  hal_uart.o [1]
 HostGetData              0x800'17bb   0x44  Code  Gb  hal_uart.o [1]
-HostHead                0x2000'0398    0x1  Data  Lc  hal_uart.o [1]
-HostTail                0x2000'0399    0x1  Data  Lc  hal_uart.o [1]
+HostHead                0x2000'03a0    0x1  Data  Lc  hal_uart.o [1]
+HostTail                0x2000'03a1    0x1  Data  Lc  hal_uart.o [1]
 HostUartInit             0x800'1665   0x82  Code  Gb  hal_uart.o [1]
 HostUartSend             0x800'181d   0x32  Code  Gb  hal_uart.o [1]
-IO_Action                0x800'1f21    0x2  Code  Lc  protocol.o [1]
-InOutStatusAction        0x800'1f23    0x2  Code  Lc  protocol.o [1]
-LPTIM_TIM6_IRQHandler    0x800'238d   0x24  Code  Gb  hal_timer.o [1]
+IO_Action                0x800'1f31    0x2  Code  Lc  protocol.o [1]
+InOutStatusAction        0x800'1f33    0x2  Code  Lc  protocol.o [1]
+LPTIM_TIM6_IRQHandler    0x800'23ad   0x24  Code  Gb  hal_timer.o [1]
 LoadInt                  0x800'026d   0x74  Code  Lc  xprintffull_nomb.o [2]
-MCU_Init                 0x800'23bd   0x2c  Code  Gb  init.o [1]
+MCU_Init                 0x800'23dd   0x2c  Code  Gb  init.o [1]
 NMI_Handler              0x800'0f2f    0x2  Code  Gb  n32g030_it.o [1]
 NVIC_DisableIRQ          0x800'197f    0xe  Code  Lc  misc.o [1]
 NVIC_EnableIRQ           0x800'1971    0xe  Code  Lc  misc.o [1]
 NVIC_Init                0x800'19d1   0x24  Code  Gb  misc.o [1]
 NVIC_SetPriority         0x800'198d   0x44  Code  Lc  misc.o [1]
-NetLedStatusAction       0x800'1f25    0x2  Code  Lc  protocol.o [1]
+NetLedStatusAction       0x800'1f35    0x2  Code  Lc  protocol.o [1]
 PendSV_Handler           0x800'0f35    0x2  Code  Gb  n32g030_it.o [1]
 ProStr                  0x2000'02c8   0x74  Data  Gb  protocol.o [1]
-ProtocolParse            0x800'1f29   0xbc  Code  Lc  protocol.o [1]
+ProtocolParse            0x800'1f39   0xbc  Code  Lc  protocol.o [1]
 ProtocolParse::len_temp
                         0x2000'033c    0x4  Data  Lc  protocol.o [1]
-RCC_ConfigPclk1          0x800'1d0d    0xe  Code  Gb  n32g030_rcc.o [1]
+RCC_ConfigPclk1          0x800'1d1d    0xe  Code  Gb  n32g030_rcc.o [1]
 RCC_EnableAPB1PeriphClk
-                         0x800'1e05   0x14  Code  Gb  n32g030_rcc.o [1]
+                         0x800'1e15   0x14  Code  Gb  n32g030_rcc.o [1]
 RCC_EnableAPB2PeriphClk
-                         0x800'1df1   0x14  Code  Gb  n32g030_rcc.o [1]
-RCC_GetClocksFreqValue   0x800'1d1d   0xce  Code  Gb  n32g030_rcc.o [1]
-Region$$Table$$Base      0x800'24e4          --   Gb  - Linker created -
-Region$$Table$$Limit     0x800'2508          --   Gb  - Linker created -
-RunningLedStatusAction   0x800'1f27    0x2  Code  Lc  protocol.o [1]
+                         0x800'1e01   0x14  Code  Gb  n32g030_rcc.o [1]
+RCC_GetClocksFreqValue   0x800'1d2d   0xce  Code  Gb  n32g030_rcc.o [1]
+Region$$Table$$Base      0x800'2504          --   Gb  - Linker created -
+Region$$Table$$Limit     0x800'2528          --   Gb  - Linker created -
+RunningLedStatusAction   0x800'1f37    0x2  Code  Lc  protocol.o [1]
 SVC_Handler              0x800'0f33    0x2  Code  Gb  n32g030_it.o [1]
-SetSysClock              0x800'21a5   0x8c  Code  Lc  system_n32g030.o [1]
-SysFlagVal              0x2000'0390    0x4  Data  Gb  init.o [1]
+SetSysClock              0x800'21b5   0x8c  Code  Lc  system_n32g030.o [1]
+SysFlagVal              0x2000'0398    0x4  Data  Gb  init.o [1]
+SysInfo                 0x2000'0390    0x8  Data  Gb  init.o [1]
 SysTick_Handler          0x800'0f37    0x2  Code  Gb  n32g030_it.o [1]
-SystemInit               0x800'215d   0x48  Code  Gb  system_n32g030.o [1]
-TIM_ClrIntPendingBit     0x800'2157    0x6  Code  Gb  n32g030_tim.o [1]
-TIM_ConfigInt            0x800'2127   0x12  Code  Gb  n32g030_tim.o [1]
-TIM_ConfigPrescaler      0x800'2139    0x6  Code  Gb  n32g030_tim.o [1]
-TIM_Enable               0x800'2111   0x16  Code  Gb  n32g030_tim.o [1]
-TIM_GetIntStatus         0x800'213f   0x18  Code  Gb  n32g030_tim.o [1]
-TIM_InitTimeBase         0x800'2011   0xd6  Code  Gb  n32g030_tim.o [1]
-TimerInit                0x800'2331   0x5c  Code  Gb  hal_timer.o [1]
+SystemInit               0x800'216d   0x48  Code  Gb  system_n32g030.o [1]
+TIM_ClrIntPendingBit     0x800'2167    0x6  Code  Gb  n32g030_tim.o [1]
+TIM_ConfigInt            0x800'2137   0x12  Code  Gb  n32g030_tim.o [1]
+TIM_ConfigPrescaler      0x800'2149    0x6  Code  Gb  n32g030_tim.o [1]
+TIM_Enable               0x800'2121   0x16  Code  Gb  n32g030_tim.o [1]
+TIM_GetIntStatus         0x800'214f   0x18  Code  Gb  n32g030_tim.o [1]
+TIM_InitTimeBase         0x800'2021   0xd6  Code  Gb  n32g030_tim.o [1]
+TimerInit                0x800'2351   0x5c  Code  Gb  hal_timer.o [1]
 USART1_IRQHandler        0x800'17ff   0x1e  Code  Gb  hal_uart.o [1]
 USART2_IRQHandler        0x800'18dd   0x1e  Code  Gb  hal_uart.o [1]
-USART_ConfigInt          0x800'1c57   0x36  Code  Gb  n32g030_usart.o [1]
-USART_Enable             0x800'1c3f   0x18  Code  Gb  n32g030_usart.o [1]
-USART_GetFlagStatus      0x800'1cb1    0xe  Code  Gb  n32g030_usart.o [1]
-USART_GetIntStatus       0x800'1cbf   0x4c  Code  Gb  n32g030_usart.o [1]
-USART_Init               0x800'1bad   0x7c  Code  Gb  n32g030_usart.o [1]
-USART_ReceiveData        0x800'1c95    0x8  Code  Gb  n32g030_usart.o [1]
-USART_SendData           0x800'1c8d    0x8  Code  Gb  n32g030_usart.o [1]
-USART_StructInit         0x800'1c29   0x16  Code  Gb  n32g030_usart.o [1]
-UartReadAction           0x800'1f0d   0x14  Code  Lc  protocol.o [1]
+USART_ConfigInt          0x800'1c67   0x36  Code  Gb  n32g030_usart.o [1]
+USART_Enable             0x800'1c4f   0x18  Code  Gb  n32g030_usart.o [1]
+USART_GetFlagStatus      0x800'1cc1    0xe  Code  Gb  n32g030_usart.o [1]
+USART_GetIntStatus       0x800'1ccf   0x4c  Code  Gb  n32g030_usart.o [1]
+USART_Init               0x800'1bbd   0x7c  Code  Gb  n32g030_usart.o [1]
+USART_ReceiveData        0x800'1ca5    0x8  Code  Gb  n32g030_usart.o [1]
+USART_SendData           0x800'1c9d    0x8  Code  Gb  n32g030_usart.o [1]
+USART_StructInit         0x800'1c39   0x16  Code  Gb  n32g030_usart.o [1]
+UartReadAction           0x800'1f1d   0x14  Code  Lc  protocol.o [1]
 _GenldFullNoMb           0x800'0c7d  0x27c  Code  Lc  xprintffull_nomb.o [2]
 _LdtobFullNoMb           0x800'0811  0x456  Code  Lc  xprintffull_nomb.o [2]
 _LitobFullNoMb           0x800'06a5  0x120  Code  Lc  xprintffull_nomb.o [2]
 _Locale_lconv           0x2000'0090   0x38  Data  Lc  xlocale_c.o [2]
 _PrintfFullNoMb          0x800'00c1  0x19e  Code  Gb  xprintffull_nomb.o [2]
-_Prout                   0x800'254f   0x16  Code  Gb  xprout.o [2]
+_Prout                   0x800'256f   0x16  Code  Gb  xprout.o [2]
 _PutcharsFullNoMb        0x800'0ef9   0x34  Code  Lc  xprintffull_nomb.o [2]
 _PutfldFullNoMb          0x800'02e1  0x264  Code  Lc  xprintffull_nomb.o [2]
 _PuttxtFullNoMb          0x800'0591  0x114  Code  Lc  xprintffull_nomb.o [2]
@@ -427,39 +430,39 @@ __aeabi_ui2d             0x800'12b1         Code  Gb  IxxToDbl.o [3]
 __aeabi_uidiv            0x800'14bf         Code  Gb  I32DivModFast.o [4]
 __aeabi_uidivmod         0x800'14bf         Code  Gb  I32DivModFast.o [4]
 __aeabi_uldivmod         0x800'0fbb         Code  Gb  I64DivMod.o [4]
-__cmain                  0x800'2509         Code  Gb  cmain.o [4]
+__cmain                  0x800'2529         Code  Gb  cmain.o [4]
 __exit                   0x800'1651   0x14  Code  Gb  exit.o [5]
 __iar_Fail_s             0x800'0f4d   0x22  Code  Gb  xfail_s.o [2]
 __iar_Memchr             0x800'0fa5         Code  Gb  memchr.o [4]
 __iar_Memcpy             0x800'11e9         Code  Gb  ABImemcpy.o [4]
 __iar_Stdout            0x2000'0048   0x48  Data  Gb  xfiles.o [2]
 __iar_Strchr             0x800'0f39         Code  Gb  strchr.o [4]
-__iar_copy_init3         0x800'248d   0x30  Code  Gb  copy_init3.o [4]
+__iar_copy_init3         0x800'24ad   0x30  Code  Gb  copy_init3.o [4]
 __iar_d2uiz              0x800'1285         Code  Gb  DblToI32.o [3]
-__iar_data_init3         0x800'24bd   0x28  Code  Gb  data_init.o [4]
-__iar_program_start      0x800'2595         Code  Gb  cstartup_M.o [4]
-__iar_zero_init3         0x800'2451   0x3c  Code  Gb  zero_init3.o [4]
-__low_level_init         0x800'2527    0x4  Code  Gb  low_level_init.o [2]
+__iar_data_init3         0x800'24dd   0x28  Code  Gb  data_init.o [4]
+__iar_program_start      0x800'25b5         Code  Gb  cstartup_M.o [4]
+__iar_zero_init3         0x800'2471   0x3c  Code  Gb  zero_init3.o [4]
+__low_level_init         0x800'2547    0x4  Code  Gb  low_level_init.o [2]
 __vector_table           0x800'0000         Data  Gb  startup_n32g030_EWARM.o [1]
-_call_main               0x800'2515         Code  Gb  cmain.o [4]
-_exit                    0x800'2545         Code  Gb  cexit.o [4]
-_main                    0x800'2523         Code  Gb  cmain.o [4]
+_call_main               0x800'2535         Code  Gb  cmain.o [4]
+_exit                    0x800'2565         Code  Gb  cexit.o [4]
+_main                    0x800'2543         Code  Gb  cmain.o [4]
 abort                    0x800'163d    0xa  Code  Gb  abort.o [2]
-exit                     0x800'253b    0x8  Code  Gb  exit.o [2]
+exit                     0x800'255b    0x8  Code  Gb  exit.o [2]
 fputc                    0x800'1931   0x20  Code  Gb  hal_uart.o [1]
-ledTest                  0x800'22df   0x3c  Code  Gb  hal_gpio.o [1]
-ledTest::count          0x2000'039e    0x2  Data  Lc  hal_gpio.o [1]
+ledTest                  0x800'22fb   0x3c  Code  Gb  hal_gpio.o [1]
+ledTest::count          0x2000'03a6    0x2  Data  Lc  hal_gpio.o [1]
 localeconv               0x800'1631    0x4  Code  Gb  xlocale_c.o [2]
-main                     0x800'252b   0x10  Code  Gb  main.o [1]
+main                     0x800'254b   0x10  Code  Gb  main.o [1]
 memchr                   0x800'0fa5         Code  Gb  memchr.o [4]
 obuf                    0x2000'0340   0x50  Data  Lc  xfiles.o [2]
-printf                   0x800'2429   0x28  Code  Gb  printf.o [2]
-putchar                  0x800'2565   0x10  Code  Gb  putchar.o [2]
-s_AdcHclkPresTable       0x800'1e40   0x10  Data  Lc  n32g030_rcc.o [1]
-s_AdcPllClkPresTable     0x800'1e50   0x20  Data  Lc  n32g030_rcc.o [1]
-s_ApbAhbPresTable        0x800'1e30   0x10  Data  Lc  n32g030_rcc.o [1]
+printf                   0x800'2449   0x28  Code  Gb  printf.o [2]
+putchar                  0x800'2585   0x10  Code  Gb  putchar.o [2]
+s_AdcHclkPresTable       0x800'1e50   0x10  Data  Lc  n32g030_rcc.o [1]
+s_AdcPllClkPresTable     0x800'1e60   0x20  Data  Lc  n32g030_rcc.o [1]
+s_ApbAhbPresTable        0x800'1e40   0x10  Data  Lc  n32g030_rcc.o [1]
 scale                    0x800'07c5   0x44  Code  Lc  xprintffull_nomb.o [2]
-sec_hand                0x2000'0394    0x4  Data  Lc  xfail_s.o [2]
+sec_hand                0x2000'039c    0x4  Data  Lc  xfail_s.o [2]
 strchr                   0x800'0f39         Code  Gb  strchr.o [4]
 strlen                   0x800'0f95         Code  Gb  strlen.o [4]
 
@@ -470,9 +473,9 @@ strlen                   0x800'0f95         Code  Gb  strlen.o [4]
 [4] = rt6M_tl.a
 [5] = shb_l.a
 
-  9 616 bytes of readonly  code memory
+  9 648 bytes of readonly  code memory
     256 bytes of readonly  data memory
-  1 952 bytes of readwrite data memory
+  1 960 bytes of readwrite data memory
 
 Errors: none
 Warnings: none

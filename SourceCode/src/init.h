@@ -27,14 +27,14 @@ typedef union{
 
 typedef struct{
 	IoStatus					IO_Status;
-	uint8_t						ButtonStatus;
+	uint8_t						KeyLevel;
 	uint8_t						NetLedStatus;
 	uint8_t						RunningLedStatus;
-	
 }SystemStr;
 
 void MCU_Init(void);
 
 
 extern SysFlag SysFlagVal;
+extern SystemStr SysInfo;
 #endif
