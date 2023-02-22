@@ -774,7 +774,7 @@
                 </option>
                 <option>
                     <name>IlinkIcfFile</name>
-                    <state>$TOOLKIT_DIR$\config\linker\Nations\N32G030\N32G030x6.icf</state>
+                    <state>$TOOLKIT_DIR$\config\linker\Nations\N32G030\N32G030x8.icf</state>
                 </option>
                 <option>
                     <name>IlinkIcfFileSlave</name>

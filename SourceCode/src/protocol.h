@@ -10,6 +10,10 @@
 #define PROTOCOL_HEAD_5							0x48
 #define PROTOCOL_HEAD_6							0x44
 
+#define COMMAND_MIN_LEN							11
+
+typedef void (*Fctr)(void);
+
 typedef enum{
 	COMMAND_81 = 0x81,
 	COMMAND_CONFIRM_81 = 0x01,
@@ -44,7 +48,13 @@ typedef struct{
 	uint32_t comLen;
 	uint8_t dataLen;
 	uint8_t data[100];
+	uint8_t paraDone;
 }ProStruct;
+
+typedef struct{
+	ComEnum Command;
+	Fctr	Func;
+}FuncStr;
 
 void ComTask(void);
 

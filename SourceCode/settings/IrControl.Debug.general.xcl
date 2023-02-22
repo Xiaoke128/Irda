@@ -2,7 +2,7 @@
 
 "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\bin\armjlink2.dll" 
 
-"E:\workCode\ir_uart\SourceCode\Debug\Exe\IrControl.out" 
+"E:\workCode\git\Irda\SourceCode\Debug\Exe\IrControl.out" 
 
 --plugin="C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\bin\armbat.dll" 
 

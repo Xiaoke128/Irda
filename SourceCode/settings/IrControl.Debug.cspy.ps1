@@ -23,9 +23,9 @@
 
 if ($debugfile -eq "")
 {
-& "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\common\bin\cspybat" -f "E:\workCode\ir_uart\SourceCode\settings\IrControl.Debug.general.xcl" --backend -f "E:\workCode\ir_uart\SourceCode\settings\IrControl.Debug.driver.xcl" 
+& "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\common\bin\cspybat" -f "E:\workCode\git\Irda\SourceCode\settings\IrControl.Debug.general.xcl" --backend -f "E:\workCode\git\Irda\SourceCode\settings\IrControl.Debug.driver.xcl" 
 }
 else
 {
-& "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\common\bin\cspybat" -f "E:\workCode\ir_uart\SourceCode\settings\IrControl.Debug.general.xcl" --debug_file=$debugfile --backend -f "E:\workCode\ir_uart\SourceCode\settings\IrControl.Debug.driver.xcl" 
+& "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\common\bin\cspybat" -f "E:\workCode\git\Irda\SourceCode\settings\IrControl.Debug.general.xcl" --debug_file=$debugfile --backend -f "E:\workCode\git\Irda\SourceCode\settings\IrControl.Debug.driver.xcl" 
 }

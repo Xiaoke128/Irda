@@ -11,8 +11,8 @@
 #define LED_KEY_PORT           	GPIOA
 #define LED0_PIN                GPIO_PIN_7
 #define LED1_PIN                GPIO_PIN_6
-#define LED2_PIN                GPIO_PIN_10
-#define LED3_PIN                GPIO_PIN_9
+//#define LED2_PIN                GPIO_PIN_10
+//#define LED3_PIN                GPIO_PIN_9
 #define KEY_PIN					GPIO_PIN_0
 
 #define IO12_PORT				GPIOF
@@ -31,11 +31,11 @@
 #define LED1_ON                 GPIO_SetBits(LED_KEY_PORT, LED1_PIN)
 #define LED1_OFF                GPIO_ResetBits(LED_KEY_PORT, LED1_PIN)
 
-#define LED2_ON                 GPIO_SetBits(LED_KEY_PORT, LED2_PIN)
-#define LED2_OFF                GPIO_ResetBits(LED_KEY_PORT, LED2_PIN)
+//#define LED2_ON                 GPIO_SetBits(LED_KEY_PORT, LED2_PIN)
+//#define LED2_OFF                GPIO_ResetBits(LED_KEY_PORT, LED2_PIN)
 
-#define LED3_ON                 GPIO_SetBits(LED_KEY_PORT, LED3_PIN)
-#define LED3_OFF                GPIO_ResetBits(LED_KEY_PORT, LED3_PIN)
+//#define LED3_ON                 GPIO_SetBits(LED_KEY_PORT, LED3_PIN)
+//#define LED3_OFF                GPIO_ResetBits(LED_KEY_PORT, LED3_PIN)
 
 #define READ_KEY_VAL			GPIO_ReadInputDataBit(LED_KEY_PORT, KEY_PIN)
 

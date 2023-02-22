@@ -13,11 +13,11 @@ void GpioInit(void)
 	GPIO_InitStructure.Pin            = LED1_PIN;
 	GPIO_InitPeripheral(LED_KEY_PORT, &GPIO_InitStructure);
 	
-	GPIO_InitStructure.Pin            = LED2_PIN;
-	GPIO_InitPeripheral(LED_KEY_PORT, &GPIO_InitStructure);
+	//GPIO_InitStructure.Pin            = LED2_PIN;
+	//GPIO_InitPeripheral(LED_KEY_PORT, &GPIO_InitStructure);
 	
-	GPIO_InitStructure.Pin            = LED3_PIN;
-	GPIO_InitPeripheral(LED_KEY_PORT, &GPIO_InitStructure);
+	//GPIO_InitStructure.Pin            = LED3_PIN;
+	//GPIO_InitPeripheral(LED_KEY_PORT, &GPIO_InitStructure);
 	
 	GPIO_InitStructure.Pin            = IO1_PIN;
 	GPIO_InitPeripheral(IO12_PORT, &GPIO_InitStructure);
@@ -40,8 +40,8 @@ void GpioInit(void)
 	
 	LED0_ON;
 	LED1_ON;
-	LED2_ON;
-	LED3_ON;
+	//LED2_ON;
+	//LED3_ON;
 }
 
 void IoDirSet(IoCh channel, IoDir dir)
@@ -139,7 +139,7 @@ void ledTest(void)
 			count = 0;
 			GPIO_TogglePin(LED_KEY_PORT, LED0_PIN);
 			GPIO_TogglePin(LED_KEY_PORT, LED1_PIN);
-			printf("LED Toggle!\r\n");
+			//printf("LED Toggle!\r\n");
 		}
 	}
 }

@@ -2,18 +2,108 @@
 
 ProStruct ProStr;
 static void ProtocolParse(uint8_t ch);
+static void ControlAction(void);
+static void ControlConfirmAction(void);
+static void ConfigureAction(void);
+static void ConfigureConfirmAction(void);
+static void UartReadAction(void);
+static void IO_Action(void);
+static void InOutStatusAction(void);
+static void NetLedStatusAction(void);
+static void RunningLedStatusAction(void);
+
+FuncStr FuncTable[] = {
+	{COMMAND_81,				ControlAction},
+	{COMMAND_CONFIRM_81,		ControlConfirmAction},
+	{COMMAND_83,				ConfigureAction},
+	{COMMAND_CONFIRM_83,		ConfigureConfirmAction},
+	{COMMAND_88,				UartReadAction},
+	{COMMAND_89,				IO_Action},
+	{COMMAND_8A,				InOutStatusAction},
+	{COMMAND_8B,				NetLedStatusAction},
+	{COMMAND_8C,				RunningLedStatusAction},
+};
 
 
 void ComTask(void)
 {
 	uint8_t ch = 0;
+	uint8_t i = 0;
 	
 	if(HostCheck())
+	{
+		ch = HostGetData();
+		//HostUartSend(&ch, 1);
+		ProtocolParse(ch);
+		if(ProStr.paraDone)
 		{
-			ch = HostGetData();
-			//HostUartSend(&ch, 1);
-			ProtocolParse(ch);
+			ProStr.paraDone = 0;
+			for(i = 0; i < (sizeof(FuncTable) / sizeof(FuncStr)); i++)
+			{
+				if(FuncTable[i].Command == ProStr.command)
+				{
+					FuncTable[i].Func();
+					break;
+				}
+			}
 		}
+	}
+	if(DebugCheck())
+	{
+		ch = DebugGetData();
+		DebugUartSend(&ch, 1);
+	}
+}
+
+static void ControlAction(void)
+{
+	
+}
+
+static void ControlConfirmAction(void)
+{
+	uint8_t resbuf[9] = {0x09, 0x00, 0x00, 0x00, 0x05, 0x00, 0x00, 0x00, 0x81};
+	
+	HostUartSend(resbuf, sizeof(resbuf));
+}
+
+static void ConfigureAction(void)
+{
+	
+}
+
+static void ConfigureConfirmAction(void)
+{
+	uint8_t resbuf[9] = {0x09, 0x00, 0x00, 0x00, 0x05, 0x00, 0x00, 0x00, 0x83};
+	
+	HostUartSend(resbuf, sizeof(resbuf));
+}
+
+static void UartReadAction(void)
+{
+	uint8_t resbuf[12] = {0x08, 0x00, 0x00, 0x00, 0x03, 0x00, 0x00, 0x00, 0x01, 0x31, 0x32, 0x33};
+	
+	HostUartSend(resbuf, sizeof(resbuf));
+}
+
+static void IO_Action(void)
+{
+	
+}
+
+static void InOutStatusAction(void)
+{
+	
+}
+
+static void NetLedStatusAction(void)
+{
+	
+}
+
+static void RunningLedStatusAction(void)
+{
+	
 }
 
 static void ProtocolParse(uint8_t ch)
@@ -65,37 +155,36 @@ static void ProtocolParse(uint8_t ch)
 		break;
 	case LEN_HH:
 		ProStr.comLen = ch;
-		ProStr.comLen <<= 8;
 		ProStr.step = LEN_HL;
 		break;
 	case LEN_HL:
-		ProStr.comLen += ch;
-		ProStr.comLen <<= 8;
+		ProStr.comLen += (uint32_t)(ch << 8);
 		ProStr.step = LEN_LH;
 		break;
 	case LEN_LH:
-		ProStr.comLen += ch;
-		ProStr.comLen <<= 8;
+		ProStr.comLen += (uint32_t)(ch << 16);
 		ProStr.step = LEN_LL;
 		break;
 	case LEN_LL:
-		ProStr.comLen += ch;
-		len_temp = ProStr.comLen - 11;
-		ProStr.step = DATA;
-		break;
-	case DATA:
+		ProStr.comLen += (uint32_t)(ch << 24);
+		len_temp = ProStr.comLen - COMMAND_MIN_LEN;
 		if(len_temp > 0)
 		{
-			ProStr.data[ProStr.dataLen++] = ch;
-			len_temp--;
-			if(len_temp == 0)
-			{
-				ProStr.step = HEAD_1;
-			}
+			ProStr.step = DATA;
 		}
 		else
 		{
 			ProStr.step = HEAD_1;
+			ProStr.paraDone = 1;
+		}
+		break;
+	case DATA:
+		ProStr.data[ProStr.dataLen++] = ch;
+		len_temp--;
+		if(len_temp == 0)
+		{
+			ProStr.step = HEAD_1;
+			ProStr.paraDone = 1;
 		}
 		break;
 	default:
