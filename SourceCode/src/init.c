@@ -7,6 +7,7 @@ SystemStr SysInfo = {
 	0,
 	0,
 	0,
+	IO_GPIO,
 };
 
 void MCU_Init(void)

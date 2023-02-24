@@ -10,10 +10,16 @@
 typedef union{
 	uint32_t val;
 	struct{
-		uint8_t sys_1ms:		1;
-		uint32_t reserved:		31;
+		uint8_t sys_1ms:			1;
+		uint8_t pro_timer_enable:	1;
+		uint32_t reserved:			30;
 	}bit;
 }SysFlag;
+
+typedef enum{
+	IO_GPIO,
+	IO_IR,
+}IoFuncEnum;
 
 typedef union{
 	uint32_t val;
@@ -30,6 +36,7 @@ typedef struct{
 	uint8_t						KeyLevel;
 	uint8_t						NetLedStatus;
 	uint8_t						RunningLedStatus;
+	IoFuncEnum					IoFunc;
 }SystemStr;
 
 void MCU_Init(void);

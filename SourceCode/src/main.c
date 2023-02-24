@@ -49,7 +49,7 @@ int main(void)
 	MCU_Init();
     while (1)
     {
-		ledTest();
+		//ledTest();
 		ComTask();
     }
 }

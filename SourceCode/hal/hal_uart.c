@@ -175,14 +175,7 @@ static void DebugAdd(uint8_t data)
 //check fifo, whether have data not get out
 uint8_t DebugCheck(void)
 {
-	if(DebugCount > 0)
-	{
-		return 1;
-	}
-	else
-	{
-		return 0;
-	}
+	return DebugCount;
 }
 
 //get a character from fifo

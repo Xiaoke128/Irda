@@ -38,8 +38,8 @@ void GpioInit(void)
 	GPIO_InitStructure.GPIO_Mode      = GPIO_MODE_INPUT;
 	GPIO_InitPeripheral(LED_KEY_PORT, &GPIO_InitStructure);
 	
-	LED0_ON;
-	LED1_ON;
+	LED0_OFF;
+	LED1_OFF;
 	SysInfo.KeyLevel = GPIO_ReadInputDataBit(LED_KEY_PORT, KEY_PIN);//read the key level when power on
 	//LED2_ON;
 	//LED3_ON;

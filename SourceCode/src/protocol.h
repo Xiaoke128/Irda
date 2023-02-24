@@ -2,6 +2,8 @@
 #define PROTOCOL_H
 #include <stdio.h>
 #include "hal_uart.h"
+#include "init.h"
+#include <string.h>
 
 #define PROTOCOL_HEAD_1							0xFF
 #define PROTOCOL_HEAD_2							0xFF
@@ -52,9 +54,16 @@ typedef struct{
 }ProStruct;
 
 typedef struct{
+	uint8_t index;
+	uint8_t data[100];
+}ComNeedConfStr;
+
+typedef struct{
 	ComEnum Command;
 	Fctr	Func;
 }FuncStr;
+
+extern ProStruct ProStr;
 
 void ComTask(void);
 

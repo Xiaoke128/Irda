@@ -1,6 +1,10 @@
 #include "protocol.h"
 
 ProStruct ProStr;
+ComNeedConfStr ComConfData = {
+	0,
+	{0},
+};
 static void ProtocolParse(uint8_t ch);
 static void ControlAction(void);
 static void ControlConfirmAction(void);
@@ -32,6 +36,7 @@ void ComTask(void)
 	
 	if(HostCheck())
 	{
+		ProTimerEnable();
 		ch = HostGetData();
 		//HostUartSend(&ch, 1);
 		ProtocolParse(ch);
@@ -48,62 +53,140 @@ void ComTask(void)
 			}
 		}
 	}
+#if 0
 	if(DebugCheck())
 	{
 		ch = DebugGetData();
 		DebugUartSend(&ch, 1);
 	}
+#endif
 }
 
 static void ControlAction(void)
 {
-	
+	ComConfData.index = ProStr.dataLen;
+	memcpy(ComConfData.data, ProStr.data, ComConfData.index);
 }
 
 static void ControlConfirmAction(void)
 {
 	uint8_t resbuf[9] = {0x09, 0x00, 0x00, 0x00, 0x05, 0x00, 0x00, 0x00, 0x81};
+	uint8_t index = 0;
 	
+	if(ProStr.data[0] <= 7)//channel number, UART
+	{
+		if(ProStr.data[0] == 0)
+		{
+			index = 7;
+			for(; index < ComConfData.index; index++)
+			{
+				DebugUartSend(&ComConfData.data[index], 1);
+			}
+		}
+	}
+	else if(ProStr.data[0] <= 15)//IO
+	{
+		
+	}
+	else if(ProStr.data[0] <= 23)//relay
+	{
+		
+	}
+	else if(ProStr.data[0] <= 27)//ir
+	{
+		
+	}
+	ComConfData.index = 0;
+	memset(ComConfData.data, 0, sizeof(ComConfData.data));
 	HostUartSend(resbuf, sizeof(resbuf));
 }
 
 static void ConfigureAction(void)
 {
-	
+	ComConfData.index = ProStr.dataLen;
+	memcpy(ComConfData.data, ProStr.data, ComConfData.index);
 }
 
 static void ConfigureConfirmAction(void)
 {
 	uint8_t resbuf[9] = {0x09, 0x00, 0x00, 0x00, 0x05, 0x00, 0x00, 0x00, 0x83};
 	
+	ComConfData.index = 0;
+	memset(ComConfData.data, 0, sizeof(ComConfData.data));
 	HostUartSend(resbuf, sizeof(resbuf));
 }
 
 static void UartReadAction(void)
 {
-	uint8_t resbuf[12] = {0x08, 0x00, 0x00, 0x00, 0x03, 0x00, 0x00, 0x00, 0x01, 0x31, 0x32, 0x33};
-	
+	uint8_t resbuf[9] = {0};
+	uint8_t ch = 0;	
+	uint32_t datalen = DebugCheck();
+	resbuf[0] = (datalen + 5);
+	resbuf[1] = (datalen + 5) >> 8;
+	resbuf[2] = (datalen + 5) >> 16;
+	resbuf[3] = (datalen + 5) >> 24;
+	resbuf[4] = datalen;
+	resbuf[5] = 0;
+	resbuf[6] = 0;
+	resbuf[7] = 0;
+	resbuf[8] = 0;//channel number	
 	HostUartSend(resbuf, sizeof(resbuf));
+	while(DebugCheck())
+	{
+		ch = DebugGetData();
+		HostUartSend(&ch, 1);
+	};
 }
 
 static void IO_Action(void)
 {
+	uint8_t resbuf[13] = {0x09, 0x00, 0x00, 0x00, 0x09, 0x00, 0x00, 0x00, 0x89,};
 	
+	resbuf[9] = SysInfo.IO_Status.byte.IO1_InOut;
+	resbuf[10] = SysInfo.IO_Status.byte.IO2_InOut;
+	resbuf[11] = SysInfo.IO_Status.byte.IO3_InOut;
+	resbuf[12] = SysInfo.IO_Status.byte.IO4_InOut;
+	HostUartSend(resbuf, sizeof(resbuf));
 }
 
 static void InOutStatusAction(void)
 {
+	uint8_t resbuf[9] = {0x05, 0x00, 0x00, 0x00, 0x05, 0x00, 0x00, 0x00, 0x01};
 	
+	resbuf[8] = SysInfo.KeyLevel;
+	HostUartSend(resbuf, sizeof(resbuf));
 }
 
 static void NetLedStatusAction(void)
 {
+	uint8_t resbuf[9] = {0x05, 0x00, 0x00, 0x00, 0x05, 0x00, 0x00, 0x00, 0x8B};
 	
+	SysInfo.NetLedStatus = ProStr.data[0];
+	if(SysInfo.NetLedStatus)
+	{
+		LED0_ON;
+	}
+	else
+	{
+		LED0_OFF;
+	}
+	HostUartSend(resbuf, sizeof(resbuf));
 }
 
 static void RunningLedStatusAction(void)
 {
+	uint8_t resbuf[9] = {0x05, 0x00, 0x00, 0x00, 0x05, 0x00, 0x00, 0x00, 0x8C};
 	
+	SysInfo.RunningLedStatus = ProStr.data[0];
+	if(SysInfo.RunningLedStatus)
+	{
+		LED1_ON;
+	}
+	else
+	{
+		LED1_OFF;
+	}
+	HostUartSend(resbuf, sizeof(resbuf));
 }
 
 static void ProtocolParse(uint8_t ch)
@@ -176,6 +259,7 @@ static void ProtocolParse(uint8_t ch)
 		{
 			ProStr.step = HEAD_1;
 			ProStr.paraDone = 1;
+			ProTimerDisable();
 		}
 		break;
 	case DATA:
@@ -185,6 +269,7 @@ static void ProtocolParse(uint8_t ch)
 		{
 			ProStr.step = HEAD_1;
 			ProStr.paraDone = 1;
+			ProTimerDisable();
 		}
 		break;
 	default:

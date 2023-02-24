@@ -1,5 +1,7 @@
 #include "hal_timer.h"
 
+static uint16_t ProTimerCount = 0;
+
 void TimerInit(void)
 {
 	uint16_t PrescalerValue = 0;
@@ -36,6 +38,17 @@ void TimerInit(void)
     TIM_Enable(TIM6, ENABLE);
 }
 
+void ProTimerEnable(void)
+{
+	ProTimerCount = 0;
+	SysFlagVal.bit.pro_timer_enable = 1;
+}
+
+void ProTimerDisable(void)
+{
+	SysFlagVal.bit.pro_timer_enable = 0;
+}
+
 /**
  * @brief  This function handles TIM6 global interrupt request.
  */
@@ -45,5 +58,15 @@ void LPTIM_TIM6_IRQHandler(void)
     {
         TIM_ClrIntPendingBit(TIM6, TIM_INT_UPDATE);
 		SysFlagVal.bit.sys_1ms = 1;
+		if(SysFlagVal.bit.pro_timer_enable)
+		{
+			ProTimerCount++;
+			if(ProTimerCount >= 300)
+			{
+				ProStr.step = HEAD_1;
+				ProTimerCount = 0;
+				ProTimerDisable();
+			}
+		}
     }
 }

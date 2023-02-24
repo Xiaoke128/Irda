@@ -4,6 +4,9 @@
 #include "n32g030.h"
 #include "init.h"
 
+
 void TimerInit(void);
+void ProTimerEnable(void);
+void ProTimerDisable(void);
 
 #endif
