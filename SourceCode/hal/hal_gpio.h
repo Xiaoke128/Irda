@@ -42,20 +42,8 @@
 #define READ_KEY_VAL			GPIO_ReadInputDataBit(LED_KEY_PORT, KEY_PIN)
 
 
-typedef enum{
-	IO_OUTPUT,
-	IO_INPUT,
-}IoDir;
-
-typedef enum{
-	IO_CHANNEL_1,
-	IO_CHANNEL_2,
-	IO_CHANNEL_3,
-	IO_CHANNEL_4,
-}IoCh;
-
 void GpioInit(void);
-void IoDirSet(ChannelNumDefine channel, IoDir dir);
+void IoDirSet(ChannelNumDefine channel, IoInOutStatus dir);
 void IoOutputLevel(ChannelNumDefine channel, Bit_OperateType level);
 uint8_t IoReadLevel(ChannelNumDefine channel);
 void ledTest(void);

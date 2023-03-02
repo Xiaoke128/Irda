@@ -36,6 +36,7 @@
 #include "main.h"
 #include "init.h"
 #include "hal_gpio.h"
+#include "protocol.h"
 
 ErrorStatus HSEStartUpStatus;
 ErrorStatus HSIStartUpStatus;
@@ -178,7 +179,7 @@ int main(void)
 	MCU_Init();
     while (1)
     {
-		ledTest();
+		//ledTest();
 		ComTask();
     }
 }

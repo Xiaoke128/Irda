@@ -1,6 +1,6 @@
 #include "init.h"
 #include "hal_gpio.h"
-
+#include "protocol.h"
 SysFlag SysFlagVal;
 
 SystemStr SysInfo = {
@@ -11,8 +11,18 @@ SystemStr SysInfo = {
 	IO_GPIO,
 };
 
+static void VarInit(void)
+{
+	memset(&confData, 0, sizeof(confData));
+	confData.uartConf.baudRate = 0xC200;
+	confData.uartConf.otherConf.bit.dataBits = 0x03;
+	confData.uartConf.otherConf.bit.stopBits = 0x00;
+	confData.uartConf.otherConf.bit.checkBits = 0x00;
+}
+
 void MCU_Init(void)
 {
+	VarInit();
 	GpioInit();
 	HostUartInit();
 	DebugUartInit();

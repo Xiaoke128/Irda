@@ -38,6 +38,7 @@
 
 void HostUartInit(void);
 void DebugUartInit(void);
+void DebugUartReInit(void);
 uint8_t HostCheck(void);
 uint8_t HostGetData(void);
 void HostUartSend(uint8_t *buf, uint8_t len);

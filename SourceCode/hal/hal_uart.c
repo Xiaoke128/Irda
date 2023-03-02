@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "hal_uart.h"
+#include "protocol.h"
 
 static uint8_t HostHead = 0;
 static uint8_t HostTail = 0;
@@ -93,6 +94,78 @@ void DebugUartInit(void)
     USART_Enable(DEBUG_UART, ENABLE);
 }
 
+void DebugUartReInit(void)
+{
+	USART_ConfigInt(DEBUG_UART, USART_INT_RXDNE, DISABLE);
+	USART_Enable(DEBUG_UART, DISABLE);
+	USART_DeInit(DEBUG_UART);
+	
+	GPIO_InitType GPIO_InitStructure;
+	USART_InitType USART_InitStructure;
+	NVIC_InitType NVIC_InitStructure;
+	
+	/* Enable the USARTy Interrupt */
+    NVIC_InitStructure.NVIC_IRQChannel                   = DEBUG_UART_IRQN;
+    NVIC_InitStructure.NVIC_IRQChannelPriority           = 1;
+    NVIC_InitStructure.NVIC_IRQChannelCmd                = ENABLE;
+    NVIC_Init(&NVIC_InitStructure);
+	
+	/* Initialize GPIO_InitStructure */
+    GPIO_InitStruct(&GPIO_InitStructure); 
+	USART_StructInit(&USART_InitStructure);
+	RCC_EnableAPB2PeriphClk(DEBUG_UART_GPIO_CLK, ENABLE);
+	RCC_EnableAPB1PeriphClk(DEBUG_UART_CLK, ENABLE);
+
+	/* Configure USARTx Tx as alternate function push-pull */
+    GPIO_InitStructure.Pin            = DEBUG_TX_PIN;
+    GPIO_InitStructure.GPIO_Mode      = GPIO_MODE_AF_PP;
+    GPIO_InitStructure.GPIO_Alternate = DEBUG_TX_GPIO_AF;
+    GPIO_InitPeripheral(DEBUG_GPIO_PORT, &GPIO_InitStructure);    
+
+    /* Configure USARTx Rx as alternate function push-pull */
+    GPIO_InitStructure.Pin            = DEBUG_RX_PIN;
+    GPIO_InitStructure.GPIO_Alternate = DEBUG_RX_GPIO_AF;
+    GPIO_InitPeripheral(DEBUG_GPIO_PORT, &GPIO_InitStructure); 
+	
+	//baudrate
+	if(confData.uartConf.baudRate == 0xC200)
+	{
+		USART_InitStructure.BaudRate            = DEBUG_UART_DEFAULT_BAUD_RATE;
+	}
+	else
+	{
+		USART_InitStructure.BaudRate            = confData.uartConf.baudRate;
+	}
+    USART_InitStructure.WordLength          = USART_WL_8B;
+	//stop bits
+	if(confData.uartConf.otherConf.bit.stopBits == 0x00)
+	{
+    	USART_InitStructure.StopBits            = USART_STPB_1;
+	}
+	else
+	{
+		USART_InitStructure.StopBits            = USART_STPB_2;
+	}
+	//crc
+    if(confData.uartConf.otherConf.bit.checkBits == 0x01)
+	{
+		USART_InitStructure.Parity              = USART_PE_ODD;
+	}
+	else if(confData.uartConf.otherConf.bit.checkBits == 0x03)
+	{
+		USART_InitStructure.Parity              = USART_PE_EVEN;
+	}
+	else
+	{
+		USART_InitStructure.Parity              = USART_PE_NO;
+	}
+    USART_InitStructure.HardwareFlowControl = USART_HFCTRL_NONE;
+    USART_InitStructure.Mode                = USART_MODE_RX | USART_MODE_TX;
+	
+    USART_Init(DEBUG_UART, &USART_InitStructure);
+	USART_ConfigInt(DEBUG_UART, USART_INT_RXDNE, ENABLE);
+    USART_Enable(DEBUG_UART, ENABLE);
+}
 
 //host receive data, add to a fifo
 static void HostAdd(uint8_t data)

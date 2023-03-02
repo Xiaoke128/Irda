@@ -7,6 +7,9 @@ ComNeedConfStr ComConfData = {
 	0,
 	{0},
 };
+
+ConfDataStr confData;
+
 static void ProtocolParse(uint8_t ch);
 static void ControlAction(void);
 static void ControlConfirmAction(void);
@@ -125,8 +128,71 @@ static void ConfigureAction(void)
 
 static void ConfigureConfirmAction(void)
 {
+	uint8_t index = 0;
 	uint8_t resbuf[9] = {0x09, 0x00, 0x00, 0x00, 0x05, 0x00, 0x00, 0x00, 0x83};
 	
+	memset(&confData, 0, sizeof(confData));
+	confData.uartNum = ComConfData.data[index++];
+	confData.uartConf.channel = ComConfData.data[index++];
+	confData.uartConf.type = ComConfData.data[index++];
+	confData.uartConf.baudRate = ComConfData.data[index++];
+	confData.uartConf.baudRate += (uint16_t)(ComConfData.data[index++] << 8);
+	confData.uartConf.otherConf.bit.dataBits = ComConfData.data[index] & 0x03;
+	confData.uartConf.otherConf.bit.stopBits = ComConfData.data[index] & 0x04;
+	confData.uartConf.otherConf.bit.checkBits = ComConfData.data[index] & 0x38;
+	confData.uartConf.otherConf.bit.rtsEnable = ComConfData.data[index++] & 0x40;
+	//configure uart
+	DebugUartReInit();
+	
+	index += (confData.uartNum - 1) * 5;
+	confData.irNum = ComConfData.data[index++];
+	confData.irConf[0].channel = ComConfData.data[index++];
+	confData.irConf[0].freq = ComConfData.data[index++];
+	confData.irConf[0].freq += (uint16_t)(ComConfData.data[index++] << 8);
+	confData.irConf[1].channel = ComConfData.data[index++];
+	confData.irConf[1].freq = ComConfData.data[index++];
+	confData.irConf[1].freq += (uint16_t)(ComConfData.data[index++] << 8);
+	index += (confData.irNum - 2) * 3;
+	//configure IR, do nothing
+	
+	confData.ioNum = ComConfData.data[index++];
+	confData.ioConf[0].channel = ComConfData.data[index++];
+	confData.ioConf[0].level = ComConfData.data[index++];
+	confData.ioConf[0].ioStatus = (IoInOutStatus)ComConfData.data[index++];
+	SysInfo.IO_Status.byte.IO1_InOut = confData.ioConf[0].ioStatus;
+	confData.ioConf[1].channel = ComConfData.data[index++];
+	confData.ioConf[1].level = ComConfData.data[index++];
+	confData.ioConf[1].ioStatus = (IoInOutStatus)ComConfData.data[index++];
+	SysInfo.IO_Status.byte.IO2_InOut = confData.ioConf[1].ioStatus;
+	confData.ioConf[2].channel = ComConfData.data[index++];
+	confData.ioConf[2].level = ComConfData.data[index++];
+	confData.ioConf[2].ioStatus = (IoInOutStatus)ComConfData.data[index++];
+	SysInfo.IO_Status.byte.IO3_InOut = confData.ioConf[2].ioStatus;
+	confData.ioConf[3].channel = ComConfData.data[index++];
+	confData.ioConf[3].level = ComConfData.data[index++];
+	confData.ioConf[3].ioStatus = (IoInOutStatus)ComConfData.data[index++];
+	SysInfo.IO_Status.byte.IO4_InOut = confData.ioConf[3].ioStatus;
+	//configure io
+	IoDirSet((ChannelNumDefine)confData.ioConf[0].channel, confData.ioConf[0].ioStatus);
+	if(confData.ioConf[0].ioStatus == IO_OUTPUT_STATUS)
+	{
+		IoOutputLevel((ChannelNumDefine)confData.ioConf[0].channel, (Bit_OperateType)confData.ioConf[0].level);
+	}
+	IoDirSet((ChannelNumDefine)confData.ioConf[1].channel, confData.ioConf[1].ioStatus);
+	if(confData.ioConf[1].ioStatus == IO_OUTPUT_STATUS)
+	{
+		IoOutputLevel((ChannelNumDefine)confData.ioConf[1].channel, (Bit_OperateType)confData.ioConf[1].level);
+	}
+	IoDirSet((ChannelNumDefine)confData.ioConf[2].channel, confData.ioConf[2].ioStatus);
+	if(confData.ioConf[2].ioStatus == IO_OUTPUT_STATUS)
+	{
+		IoOutputLevel((ChannelNumDefine)confData.ioConf[2].channel, (Bit_OperateType)confData.ioConf[2].level);
+	}
+	IoDirSet((ChannelNumDefine)confData.ioConf[3].channel, confData.ioConf[3].ioStatus);
+	if(confData.ioConf[3].ioStatus == IO_OUTPUT_STATUS)
+	{
+		IoOutputLevel((ChannelNumDefine)confData.ioConf[3].channel, (Bit_OperateType)confData.ioConf[3].level);
+	}
 	ComConfData.index = 0;
 	memset(ComConfData.data, 0, sizeof(ComConfData.data));
 	HostUartSend(resbuf, sizeof(resbuf));

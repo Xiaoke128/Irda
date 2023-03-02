@@ -29,6 +29,44 @@ typedef enum{
 	COMMAND_8C = 0x8C,
 }ComEnum;
 
+typedef union{
+	uint8_t val;
+	struct{
+		uint8_t dataBits:		2;
+		uint8_t stopBits:		1;
+		uint8_t checkBits:		3;
+		uint8_t rtsEnable:		1;
+		uint8_t reserved:		1;
+	}bit;
+}UartOtherConfUnion;
+
+typedef struct{
+	uint8_t channel;
+	uint8_t type;
+	uint16_t baudRate;
+	UartOtherConfUnion otherConf;
+}UartConfStr;
+
+typedef struct{
+	uint8_t channel;
+	uint16_t freq;
+}IrConfStr;
+
+typedef struct{
+	uint8_t channel;
+	uint8_t level;
+	IoInOutStatus ioStatus; 
+}IoConfStr;
+
+typedef struct{
+	uint8_t uartNum;
+	UartConfStr uartConf;
+	uint8_t irNum;
+	IrConfStr irConf[2];
+	uint8_t ioNum;
+	IoConfStr ioConf[4];
+}ConfDataStr;
+
 typedef enum{
 	HEAD_1,
 	HEAD_2,
@@ -65,7 +103,7 @@ typedef struct{
 }FuncStr;
 
 extern ProStruct ProStr;
-
+extern ConfDataStr confData;
 void ComTask(void);
 
 #endif

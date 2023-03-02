@@ -45,7 +45,7 @@ void GpioInit(void)
 	//LED3_ON;
 }
 
-void IoDirSet(ChannelNumDefine channel, IoDir dir)
+void IoDirSet(ChannelNumDefine channel, IoInOutStatus dir)
 {
 	GPIO_InitType GPIO_InitStructure;
 	
@@ -66,7 +66,7 @@ void IoDirSet(ChannelNumDefine channel, IoDir dir)
 		GPIO_InitStructure.Pin            = IO4_PIN;
 	}
 	
-	if(dir == IO_OUTPUT)
+	if(dir == IO_OUTPUT_STATUS)
 	{
 		GPIO_InitStructure.GPIO_Mode      = GPIO_MODE_OUTPUT_PP;
 	}
@@ -87,7 +87,7 @@ void IoDirSet(ChannelNumDefine channel, IoDir dir)
 
 void IoOutputLevel(ChannelNumDefine channel, Bit_OperateType level)
 {
-	IoDirSet(channel, IO_OUTPUT);
+	IoDirSet(channel, IO_OUTPUT_STATUS);
 	if(channel == CHANNEL_IO1 || channel == CHANNEL_IR1)
 	{
 		GPIO_WriteBit(IO12_PORT, IO1_PIN, level);
@@ -108,7 +108,7 @@ void IoOutputLevel(ChannelNumDefine channel, Bit_OperateType level)
 
 uint8_t IoReadLevel(ChannelNumDefine channel)
 {
-	IoDirSet(channel, IO_INPUT);
+	IoDirSet(channel, IO_INPUT_STATUS);
 	if(channel == CHANNEL_IO1 || channel == CHANNEL_IR1)
 	{
 		return (GPIO_ReadInputDataBit(IO12_PORT, IO1_PIN));

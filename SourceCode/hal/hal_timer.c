@@ -1,5 +1,5 @@
 #include "hal_timer.h"
-
+#include "protocol.h"
 static uint16_t ProTimerCount = 0;
 
 void TimerInit(void)
