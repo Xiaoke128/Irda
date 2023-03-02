@@ -45,23 +45,23 @@ void GpioInit(void)
 	//LED3_ON;
 }
 
-void IoDirSet(IoCh channel, IoDir dir)
+void IoDirSet(ChannelNumDefine channel, IoDir dir)
 {
 	GPIO_InitType GPIO_InitStructure;
 	
-	if(channel == IO_CHANNEL_1)
+	if(channel == CHANNEL_IO1 || channel == CHANNEL_IR1)
 	{
 		GPIO_InitStructure.Pin            = IO1_PIN;
 	}
-	else if(channel == IO_CHANNEL_2)
+	else if(channel == CHANNEL_IO2 || channel == CHANNEL_IR2)
 	{
 		GPIO_InitStructure.Pin            = IO2_PIN;
 	}
-	else if(channel == IO_CHANNEL_3)
+	else if(channel == CHANNEL_IO3)
 	{
 		GPIO_InitStructure.Pin            = IO3_PIN;
 	}
-	else if(channel == IO_CHANNEL_4)
+	else if(channel == CHANNEL_IO4)
 	{
 		GPIO_InitStructure.Pin            = IO4_PIN;
 	}
@@ -75,53 +75,53 @@ void IoDirSet(IoCh channel, IoDir dir)
 		GPIO_InitStructure.GPIO_Mode      = GPIO_MODE_INPUT;
 	}
 	
-	if((channel == IO_CHANNEL_1) || (channel == IO_CHANNEL_2))
+	if((channel == CHANNEL_IO1) || (channel == CHANNEL_IO2) || channel == CHANNEL_IR1 || channel == CHANNEL_IR2)
 	{
 		GPIO_InitPeripheral(IO12_PORT, &GPIO_InitStructure);
 	}
-	else if((channel == IO_CHANNEL_3) || (channel == IO_CHANNEL_4))
+	else if((channel == CHANNEL_IO3) || (channel == CHANNEL_IO4))
 	{
 		GPIO_InitPeripheral(IO34_PORT, &GPIO_InitStructure);
 	}
 }
 
-void IoOutputLevel(IoCh channel, Bit_OperateType level)
+void IoOutputLevel(ChannelNumDefine channel, Bit_OperateType level)
 {
 	IoDirSet(channel, IO_OUTPUT);
-	if(channel == IO_CHANNEL_1)
+	if(channel == CHANNEL_IO1 || channel == CHANNEL_IR1)
 	{
 		GPIO_WriteBit(IO12_PORT, IO1_PIN, level);
 	}
-	else if(channel == IO_CHANNEL_2)
+	else if(channel == CHANNEL_IO2 || channel == CHANNEL_IR2)
 	{
 		GPIO_WriteBit(IO12_PORT, IO2_PIN, level);
 	}
-	else if(channel == IO_CHANNEL_3)
+	else if(channel == CHANNEL_IO3)
 	{
 		GPIO_WriteBit(IO34_PORT, IO3_PIN, level);
 	}
-	else if(channel == IO_CHANNEL_4)
+	else if(channel == CHANNEL_IO4)
 	{
 		GPIO_WriteBit(IO34_PORT, IO4_PIN, level);
 	}
 }
 
-uint8_t IoReadLevel(IoCh channel)
+uint8_t IoReadLevel(ChannelNumDefine channel)
 {
 	IoDirSet(channel, IO_INPUT);
-	if(channel == IO_CHANNEL_1)
+	if(channel == CHANNEL_IO1 || channel == CHANNEL_IR1)
 	{
 		return (GPIO_ReadInputDataBit(IO12_PORT, IO1_PIN));
 	}
-	else if(channel == IO_CHANNEL_2)
+	else if(channel == CHANNEL_IO2 || channel == CHANNEL_IR2)
 	{
 		return (GPIO_ReadInputDataBit(IO12_PORT, IO2_PIN));
 	}
-	else if(channel == IO_CHANNEL_3)
+	else if(channel == CHANNEL_IO3)
 	{
 		return (GPIO_ReadInputDataBit(IO34_PORT, IO3_PIN));
 	}
-	else if(channel == IO_CHANNEL_4)
+	else if(channel == CHANNEL_IO4)
 	{
 		return (GPIO_ReadInputDataBit(IO34_PORT, IO4_PIN));
 	}
@@ -130,6 +130,7 @@ uint8_t IoReadLevel(IoCh channel)
 
 void ledTest(void)
 {
+#if 0
 	static uint16_t count = 0;
 	if(SysFlagVal.bit.sys_1ms)
 	{
@@ -140,7 +141,13 @@ void ledTest(void)
 			count = 0;
 			GPIO_TogglePin(LED_KEY_PORT, LED0_PIN);
 			GPIO_TogglePin(LED_KEY_PORT, LED1_PIN);
-			//printf("LED Toggle!\r\n");
+			printf("LED Toggle!\r\n");
 		}
 	}
+#else
+	GPIO_TogglePin(LED_KEY_PORT, LED0_PIN);
+	GPIO_TogglePin(LED_KEY_PORT, LED1_PIN);
+	printf("LED Toggle!\r\n");
+	Delay_ms(1000);	
+#endif
 }

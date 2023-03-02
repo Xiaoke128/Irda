@@ -31,6 +31,8 @@
 #define LED1_ON                 GPIO_SetBits(LED_KEY_PORT, LED1_PIN)
 #define LED1_OFF                GPIO_ResetBits(LED_KEY_PORT, LED1_PIN)
 
+#define RELAY_OPEN				GPIO_SetBits(RELAY_PORT, RELAY_PIN)
+#define RELAY_CLOSE				GPIO_ResetBits(RELAY_PORT, RELAY_PIN)
 //#define LED2_ON                 GPIO_SetBits(LED_KEY_PORT, LED2_PIN)
 //#define LED2_OFF                GPIO_ResetBits(LED_KEY_PORT, LED2_PIN)
 
@@ -53,9 +55,9 @@ typedef enum{
 }IoCh;
 
 void GpioInit(void);
-void IoDirSet(IoCh channel, IoDir dir);
-void IoOutputLevel(IoCh channel, Bit_OperateType level);
-uint8_t IoReadLevel(IoCh channel);
+void IoDirSet(ChannelNumDefine channel, IoDir dir);
+void IoOutputLevel(ChannelNumDefine channel, Bit_OperateType level);
+uint8_t IoReadLevel(ChannelNumDefine channel);
 void ledTest(void);
 #endif
 

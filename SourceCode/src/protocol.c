@@ -1,4 +1,6 @@
 #include "protocol.h"
+#include "hal_gpio.h"
+#include "ir_control.h" 
 
 ProStruct ProStr;
 ComNeedConfStr ComConfData = {
@@ -86,15 +88,29 @@ static void ControlConfirmAction(void)
 	}
 	else if(ProStr.data[0] <= 15)//IO
 	{
-		
+		if(ProStr.data[7] == 0)
+		{
+			IoOutputLevel((ChannelNumDefine)ProStr.data[0], Bit_RESET);
+		}
+		else
+		{
+			IoOutputLevel((ChannelNumDefine)ProStr.data[0], Bit_SET);
+		}
 	}
 	else if(ProStr.data[0] <= 23)//relay
 	{
-		
+		if(ProStr.data[7] == 0)
+		{
+			RELAY_CLOSE;
+		}
+		else
+		{
+			RELAY_OPEN;
+		}
 	}
 	else if(ProStr.data[0] <= 27)//ir
 	{
-		
+		SendIrData((ChannelNumDefine)ProStr.data[0], 0x01, ProStr.data[7]);
 	}
 	ComConfData.index = 0;
 	memset(ComConfData.data, 0, sizeof(ComConfData.data));

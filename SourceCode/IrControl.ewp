@@ -774,7 +774,7 @@
                 </option>
                 <option>
                     <name>IlinkIcfFile</name>
-                    <state>$TOOLKIT_DIR$\config\linker\Nations\N32G030\N32G030x8.icf</state>
+                    <state>$TOOLKIT_DIR$\config\linker\Nations\N32G030\N32G030x6.icf</state>
                 </option>
                 <option>
                     <name>IlinkIcfFileSlave</name>
@@ -2176,7 +2176,13 @@
     <group>
         <name>src</name>
         <file>
+            <name>$PROJ_DIR$\src\delay.c</name>
+        </file>
+        <file>
             <name>$PROJ_DIR$\src\init.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\src\ir_control.c</name>
         </file>
         <file>
             <name>$PROJ_DIR$\src\main.c</name>

@@ -5,6 +5,7 @@
 #include "init.h"
 #include <string.h>
 
+
 #define PROTOCOL_HEAD_1							0xFF
 #define PROTOCOL_HEAD_2							0xFF
 #define PROTOCOL_HEAD_3							0x53
