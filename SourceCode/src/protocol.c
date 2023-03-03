@@ -137,10 +137,10 @@ static void ConfigureConfirmAction(void)
 	confData.uartConf.type = ComConfData.data[index++];
 	confData.uartConf.baudRate = ComConfData.data[index++];
 	confData.uartConf.baudRate += (uint16_t)(ComConfData.data[index++] << 8);
-	confData.uartConf.otherConf.bit.dataBits = ComConfData.data[index] & 0x03;
-	confData.uartConf.otherConf.bit.stopBits = ComConfData.data[index] & 0x04;
-	confData.uartConf.otherConf.bit.checkBits = ComConfData.data[index] & 0x38;
-	confData.uartConf.otherConf.bit.rtsEnable = ComConfData.data[index++] & 0x40;
+	confData.uartConf.otherConf.val = ComConfData.data[index];
+	//confData.uartConf.otherConf.val |= ComConfData.data[index] & 0x04;//stop bits
+	//confData.uartConf.otherConf.val |= ComConfData.data[index] & 0x38;//check bits
+	//confData.uartConf.otherConf.val |= ComConfData.data[index++] & 0x40;//rts
 	//configure uart
 	DebugUartReInit();
 	

@@ -38,6 +38,7 @@ void TimerInit(void)
     TIM_Enable(TIM6, ENABLE);
 }
 
+#if 0
 /**
  * @brief  Configures tim3 clocks.
  */
@@ -74,6 +75,7 @@ void DelayTimerInit(void)
     /* TIM3 enable counter */
     //TIM_Enable(TIM3, ENABLE);
 }
+#endif
 
 void ProTimerEnable(void)
 {
@@ -86,6 +88,7 @@ void ProTimerDisable(void)
 	SysFlagVal.bit.pro_timer_enable = 0;
 }
 
+#if 0
 /**
  * @brief  This function handles TIM3 global interrupt request.
  */
@@ -109,6 +112,7 @@ void TIM3_IRQHandler(void)
 		}
     }
 }
+#endif
 
 /**
  * @brief  This function handles TIM6 global interrupt request.

@@ -6,7 +6,6 @@
 
 extern volatile uint32_t delayCount;
 void TimerInit(void);
-void DelayTimerInit(void);
 void ProTimerEnable(void);
 void ProTimerDisable(void);
 

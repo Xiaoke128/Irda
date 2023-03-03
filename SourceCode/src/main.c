@@ -175,11 +175,11 @@ void SetSysClockToPLL(uint32_t freq, uint8_t src)
  */
 int main(void)
 {
-	SetSysClockToPLL(48000000, SYSCLK_USE_HSI);
+	//SetSysClockToPLL(48000000, SYSCLK_USE_HSI);
 	MCU_Init();
     while (1)
     {
-		//ledTest();
+		ledTest();
 		ComTask();
     }
 }
